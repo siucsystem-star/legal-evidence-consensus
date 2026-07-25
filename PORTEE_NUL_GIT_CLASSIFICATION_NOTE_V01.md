@@ -1,6 +1,6 @@
 # Reality Floor — Note de classification Git de `portee.ts`
 
-**Date :** 2026-07-25  
+**Date :** 2026-07-25
 **Statut :** EXCEPTION EXACT-BYTE VALIDÉE
 
 ## Observation
