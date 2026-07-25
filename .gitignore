@@ -1,0 +1,66 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+secrets.yaml
+**/secrets.yaml
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# CRE generated artifacts
+.cre_build_tmp.js
+**/.cre_build_tmp.js
+.cre/
+**/.cre/
+
+# Solidity and Hardhat generated artifacts
+contracts/artifacts/
+contracts/cache/
+contracts/typechain-types/
+contracts/coverage/
+contracts/.openzeppelin/
+
+# Generic build outputs
+dist/
+**/dist/
+build/
+**/build/
+out/
+**/out/
+coverage/
+**/coverage/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun-debug.log*
+
+# Temporary and partial files
+*.partial
+*.tmp
+*.temp
+
+# Wallet and private-key containers
+keystore/
+**/keystore/
+wallets/
+**/wallets/
+*.keystore
+*.wallet
+private-key*
+private_key*
+*.private-key
+*.private_key
+
+# Local executables and operating-system files
+*.exe
+.DS_Store
+Thumbs.db
+Desktop.ini
