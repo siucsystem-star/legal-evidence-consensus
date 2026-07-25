@@ -1,0 +1,31 @@
+# Reality Floor repository line-ending policy
+* text=auto eol=lf
+
+# Source and documentation
+*.ts text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.py text eol=lf
+*.sol text eol=lf
+*.lock text eol=lf
+*.toml text eol=lf
+*.ps1 text eol=lf
+*.pem text eol=lf
+
+# Binary artifacts
+*.wasm binary
+*.zip binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.bin binary
+
+# Exact signed-byte artifacts require a separate admission gate.
+sealed-evidence/** -text
+canonical-bytes/** -text
