@@ -46,3 +46,16 @@ The three imported TypeScript module hashes remained unchanged.
 
 This policy prevents future platform-dependent line-ending drift. It does not
 rewrite the historical baseline commit or alter any source logic.
+
+## Exception scellée — `portee.ts`
+
+`legal-evidence-consensus-workflow/portee.ts` contient volontairement un unique
+octet NUL servant de séparateur entre `cle` et `categorie`.
+
+Git peut donc le classifier comme binaire (`i/-text`). Cette classification est
+attendue et ne constitue pas un échec de fins de ligne.
+
+Ce fichier est conservé octet pour octet avec l’attribut `-text -eol`. Son
+empreinte scellée doit demeurer :
+
+`ff9a5c58ea03a16c751808bbb72a81768ca4556b33260761a0d42e836a5887ec`

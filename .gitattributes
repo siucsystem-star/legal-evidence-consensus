@@ -29,3 +29,5 @@
 # Exact signed-byte artifacts require a separate admission gate.
 sealed-evidence/** -text
 canonical-bytes/** -text
+# Exact-byte sealed TypeScript source containing an intentional NUL separator
+legal-evidence-consensus-workflow/portee.ts -text -eol
