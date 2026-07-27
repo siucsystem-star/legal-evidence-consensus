@@ -1,0 +1,85 @@
+{
+  "document": "ANCHOR_RECEIPT_SEPOLIA_V01",
+  "version": "1.0",
+  "date": "2026-07-26",
+  "project": "Legal Evidence Consensus by Coherix",
+  "status": "FIRST_ANCHOR_CONFIRMED",
+
+  "network": {
+    "name": "Ethereum Sepolia",
+    "chainId": 11155111,
+    "note": "Reseau de test. Aucune valeur economique, aucune garantie de perennite."
+  },
+
+  "contract": {
+    "address": "0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3",
+    "name": "LegalEvidenceAnchor",
+    "sourcePath": "contracts/LegalEvidenceAnchor.sol",
+    "sourceSha256": "5fabe7a29a7b855cc2f5934e2226b22eb5fd9bc808da4c4884c574e54f966d78",
+    "abiFunctions": ["anchor", "getAnchor", "isAnchored"],
+    "abiEvents": ["EvidenceAnchored"],
+    "abiErrors": ["AlreadyAnchored", "AnchorNotFound", "EmptyDigest"],
+    "deployedBytecodeBytes": 747
+  },
+
+  "transaction": {
+    "hash": "0x2a7636259f1e766ddf37fefc922159e544b44f918d05a145a2884a991574c34d",
+    "status": "success",
+    "function": "anchor(bytes32)",
+    "event": "EvidenceAnchored",
+    "submitter": "0xbf6013d4CeD10ecf794527a60AF7cd57A73ab18f",
+    "blockNumber": 11357728,
+    "blockTimestamp": 1785107232,
+    "blockTimestampUTC": "2026-07-26T23:07:12Z",
+    "explorerUrl": "https://sepolia.etherscan.io/tx/0x2a7636259f1e766ddf37fefc922159e544b44f918d05a145a2884a991574c34d"
+  },
+
+  "digest": {
+    "hex": "9f694a38f1870501557f23c2f29e8d5033e46635376a426662407d5348a8ddcf",
+    "bytes32": "0x9f694a38f1870501557f23c2f29e8d5033e46635376a426662407d5348a8ddcf",
+    "algorithm": "SHA-256",
+    "preimage": {
+      "artifact": "INSTANTANE_E1_V2_SCELLE/instantane_e1_v2.json",
+      "utf8Bytes": 20345,
+      "declaredRoot": "b1766ad6cc2617d552f2611778437cd46ee0ebee77dc76223a34ec262892b61e",
+      "localVerification": "CONFIRME",
+      "localVerificationNote": "Le sha256 du fichier scelle sur disque et la valeur attendue par ADMISSION_FIXTURE_MANIFEST_V01.json sont tous deux egaux au digest ancre. Verification effectuee localement, sans reseau."
+    }
+  },
+
+  "build": {
+    "solidity": "0.8.28",
+    "evmVersion": "Cancun",
+    "optimizer": { "enabled": true, "runs": 200 },
+    "localTests": { "framework": "Hardhat", "passed": 7, "total": 7, "when": "avant deploiement" },
+    "sourceVerification": {
+      "service": "Sourcify",
+      "result": "successful",
+      "reportedBy": "Remix",
+      "note": "Rapporte par l'outil, non reverifie independamment dans ce recu."
+    }
+  },
+
+  "establishes": [
+    "L'adresse 0xbf6013d4CeD10ecf794527a60AF7cd57A73ab18f a soumis ce digest au contrat, au bloc 11357728 de Sepolia.",
+    "Cette soumission est anterieure a tout bloc ulterieur : une borne temporelle SUPERIEURE.",
+    "Le digest soumis est egal, octet pour octet, au sha256 de l'instantane E1 v2 scelle presente localement."
+  ],
+
+  "doesNotEstablish": [
+    "que le contenu resume par le digest est vrai, exact ou complet",
+    "une quelconque validite juridique, admissibilite ou force probante",
+    "la provenance reelle du document ou l'identite humaine derriere l'adresse",
+    "que l'empreinte a ete calculee sur le document pretendu",
+    "un consensus BFT sur le CONTENU : la chaine constate une transaction, elle ne verifie pas ce que l'empreinte resume",
+    "que l'instantane existait avant ce bloc : l'ancrage borne le PLUS TARD, jamais le PLUS TOT",
+    "la qualite de la gouvernance menee hors chaine"
+  ],
+
+  "controls": {
+    "networkCallsFromThisReceipt": 0,
+    "transactionsFromThisReceipt": 0,
+    "commitsFromThisReceipt": 0,
+    "filesModified": []
+  }
+}

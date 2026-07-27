@@ -13,14 +13,21 @@ node_modules/
 **/node_modules/
 
 # CRE generated artifacts
-.cre_build_tmp.js
-**/.cre_build_tmp.js
+.cre_build_tmp*
+**/.cre_build_tmp*
 .cre/
 **/.cre/
 
 # Solidity and Hardhat generated artifacts
-contracts/artifacts/
-contracts/cache/
+# Hardhat 3 writes artifacts/ and cache/ at the REPOSITORY ROOT, not under
+# contracts/. The contracts/-prefixed rules below never matched anything and
+# left both directories publishable.
+artifacts/
+**/artifacts/
+cache/
+**/cache/
+typechain-types/
+**/typechain-types/
 contracts/typechain-types/
 contracts/coverage/
 contracts/.openzeppelin/
@@ -42,10 +49,15 @@ yarn-debug.log*
 yarn-error.log*
 bun-debug.log*
 
+# Deployment archives — the repository publishes sources, never packages
+*.zip
+
 # Temporary and partial files
 *.partial
 *.tmp
 *.temp
+*~
+.*.swp
 
 # Wallet and private-key containers
 keystore/

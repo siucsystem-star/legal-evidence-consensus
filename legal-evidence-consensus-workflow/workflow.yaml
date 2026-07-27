@@ -1,0 +1,23 @@
+# ==========================================================================
+# LEGAL EVIDENCE CONSENSUS v0.1 — CRE WORKFLOW SETTINGS
+# ==========================================================================
+# Meme structure que port/port-rf/p8v07-workflow/workflow.yaml, qui s'execute
+# deja sous `cre workflow simulate`. secrets-path reste VIDE : ce workflow ne
+# lit aucun secret, n'ecrit sur aucune chaine et n'emet aucune requete.
+# ==========================================================================
+staging-settings:
+  user-workflow:
+    workflow-name: "legal-evidence-consensus-staging"
+  workflow-artifacts:
+    workflow-path: "./main.ts"
+    config-path: "./config.staging.json"
+    secrets-path: ""
+
+# ==========================================================================
+production-settings:
+  user-workflow:
+    workflow-name: "legal-evidence-consensus-production"
+  workflow-artifacts:
+    workflow-path: "./main.ts"
+    config-path: "./config.production.json"
+    secrets-path: ""
