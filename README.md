@@ -1,66 +1,73 @@
+[Version française](README_FR.md)
+
 # Legal Evidence Consensus — Reality Floor
 
-Distinguer *« quelqu'un l'a affirmé »* de *« une preuve l'appuie »*, et ancrer la
-distinction de façon que personne — nous compris — ne puisse la réécrire après coup.
+Telling *"someone claimed it"* apart from *"evidence supports it"*, and anchoring
+that distinction so that no one — ourselves included — can rewrite it afterwards.
 
-## Le problème
+## The problem
 
-Dans un dossier juridique, deux phrases se ressemblent et ne valent pas la même chose :
+In a legal file, two sentences look alike and are not worth the same:
 
-> « On m'a dit que le plancher supporte 60 tonnes. »
-> « Le plancher supporte 60 tonnes. »
+> "I was told the floor holds 60 tonnes."
+> "The floor holds 60 tonnes."
 
-La première rapporte une déclaration. La seconde énonce un fait. Un système qui
-les traite pareil transforme une rumeur en donnée — silencieusement, et souvent
-au moment où quelqu'un s'apprête à décider.
+The first reports a statement. The second asserts a fact. A system that treats
+them alike turns hearsay into data — silently, and often at the moment someone
+is about to decide.
 
-## La proposition
+## The proposal
 
-Reality Floor gouverne une affirmation contre un **instantané de preuve scellé**,
-horodaté et signé. Le gouverneur rend un verdict — `AUTORISE`, `REFORMULER` ou
-`BLOQUE` — accompagné de codes de défaut nommés parmi quinze : `VALEUR_PERIMEE`,
-`SOURCE_INCONNUE`, `PREUVE_NON_CONCORDANTE`, `SECTION_NON_CONCORDANTE`, etc.
+Reality Floor governs a claim against a **sealed evidence snapshot**, timestamped
+and signed. The governor returns a verdict — `AUTORISE`, `REFORMULER` or
+`BLOQUE` — together with named defect codes drawn from fifteen:
+`VALEUR_PERIMEE`, `SOURCE_INCONNUE`, `PREUVE_NON_CONCORDANTE`,
+`SECTION_NON_CONCORDANTE`, and others.
 
-Le rapport produit est sérialisé de façon canonique, donc son SHA-256 est
-reproductible octet pour octet. C'est cette empreinte qui est ancrée.
+The resulting report is canonically serialised, so its SHA-256 is reproducible
+byte for byte. That digest is what gets anchored.
 
-## Le chemin réellement démontré
+*(Identifiers are kept in French: they are the actual constants in the code.)*
+
+## The path actually demonstrated
 
 ```
-instantané de preuve scellé  (SHA-256 9f694a38…, signé Ed25519, 44 événements)
+sealed evidence snapshot  (SHA-256 9f694a38…, Ed25519-signed, 44 events)
         ↓
-gouverneur  (mesurer → verdict + codes de défaut)
+governor  (mesurer → verdict + defect codes)
         ↓
-portée      (ce qui est affiché, ce qui reste masqué)
+scope     (what is shown, what stays withheld)
         ↓
-rapport canonique → SHA-256 reproductible
+canonical report → reproducible SHA-256
         ↓
-simulation CRE  (Chainlink CRE, mononœud)
-        ↓   ← étape manuelle distincte : le workflow n'appelle pas la chaîne
-empreinte ancrée sur Ethereum Sepolia
+CRE simulation  (Chainlink CRE, single node)
+        ↓   ← separate manual step: the workflow does not call the chain
+digest anchored on Ethereum Sepolia
 ```
 
-Chaque étape du parcours présenté a été réellement exécutée. Les données de démonstration sont explicitement identifiées comme telles, et l'ancrage Sepolia a été effectué séparément du workflow CRE.
+Every step of the path shown above was actually executed. The demonstration data
+is explicitly identified as such, and the Sepolia anchoring was performed
+separately from the CRE workflow.
 
-## Les deux cas de démonstration
+## The two demonstration cases
 
-Les deux portent sur la même clé, `tarif_service_principal`, contre le même
-instantané scellé. Seule l'affirmation change.
+Both concern the same key, `tarif_service_principal`, against the same sealed
+snapshot. Only the claim changes.
 
-| cas | verdict | codes de défaut | affichage |
+| case | verdict | defect codes | displayed |
 |---|---|---|---|
-| `vivant` | `AUTORISE` | aucun | « Affirmation conforme au plancher. » |
-| `perime` | `BLOQUE` | `VALEUR_PERIMEE` | « Affirmation retenue (hallucination temporelle (valeur remplacée)). » |
+| `vivant` | `AUTORISE` | none | "Affirmation conforme au plancher." |
+| `perime` | `BLOQUE` | `VALEUR_PERIMEE` | "Affirmation retenue (hallucination temporelle (valeur remplacée))." |
 
-Le second cas est le cœur de la démonstration : la valeur citée a réellement
-existé, puis a été remplacée. Elle n'est pas fausse — elle est **périmée**. Un
-système qui ne modélise pas le temps ne voit pas la différence.
+The second case is the heart of the demonstration: the quoted value did exist,
+then was superseded. It is not false — it is **stale**. A system that does not
+model time cannot see the difference.
 
-Concordance avec l'oracle scellé : **2/2**.
+Agreement with the sealed oracle: **2/2**.
 
-## Reproduire
+## Reproducing
 
-### La simulation CRE
+### The CRE simulation
 
 ```bash
 cd legal-evidence-consensus-workflow
@@ -69,11 +76,11 @@ cd ..
 cre workflow simulate legal-evidence-consensus-workflow --target staging-settings
 ```
 
-La sortie donne, pour chaque cas : identifiant, verdict, codes de défaut,
-empreinte du lot, SHA-256 du rapport, et la concordance avec l'oracle. Elle
-rappelle à chaque exécution qu'il s'agit d'une simulation mononœud sans ancrage.
+For each case the output gives: identifier, verdict, defect codes, batch digest,
+report SHA-256, and agreement with the oracle. On every run it restates that this
+is a single-node simulation with no anchoring.
 
-### Le contrat et ses 7 tests
+### The contract and its 7 tests
 
 ```bash
 npm install
@@ -81,64 +88,64 @@ npx hardhat compile
 npx hardhat test
 ```
 
-Les sept contrôles portent sur : ancrage d'une empreinte valide ; lecture exacte
-de l'émetteur, de l'empreinte, du bloc et de l'horodatage ; émission de
-l'événement ; refus de l'empreinte nulle ; refus du doublon par la même adresse ;
-ancrage indépendant par une seconde adresse ; absence de toute fonction de
-suppression ou de modification dans l'ABI.
+The seven checks cover: anchoring a valid digest; reading back the exact
+submitter, digest, block and timestamp; event emission; rejection of the zero
+digest; rejection of a duplicate by the same address; independent anchoring by a
+second address; and the absence of any deletion or modification function in the
+ABI.
 
-## Sur la chaîne
+## On chain
 
-- **Contrat** `LegalEvidenceAnchor` — [`0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3`](https://sepolia.etherscan.io/address/0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3)
-- **Premier ancrage** — [`0x2a7636259f1e766ddf37fefc922159e544b44f918d05a145a2884a991574c34d`](https://sepolia.etherscan.io/tx/0x2a7636259f1e766ddf37fefc922159e544b44f918d05a145a2884a991574c34d)
-- Bloc `11357728`, 2026-07-26T23:07:12Z, Ethereum Sepolia (chainId `11155111`)
+- **Contract** `LegalEvidenceAnchor` — [`0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3`](https://sepolia.etherscan.io/address/0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3)
+- **First anchor** — [`0x2a7636259f1e766ddf37fefc922159e544b44f918d05a145a2884a991574c34d`](https://sepolia.etherscan.io/tx/0x2a7636259f1e766ddf37fefc922159e544b44f918d05a145a2884a991574c34d)
+- Block `11357728`, 2026-07-26T23:07:12Z, Ethereum Sepolia (chainId `11155111`)
 
-Le digest ancré est **égal au SHA-256 de l'instantané de preuve scellé** que
-consomme le workflow. Le lien est vérifiable hors ligne : voir `anchors/`.
+The anchored digest is **equal to the SHA-256 of the sealed evidence snapshot**
+consumed by the workflow. The link is verifiable offline: see `anchors/`.
 
-Le contrat n'a que trois fonctions, dont une seule écrit. Aucune suppression,
-aucune modification, aucun propriétaire, aucune mise à niveau.
+The contract has only three functions, one of which writes. No deletion, no
+modification, no owner, no upgrade path.
 
-## Limites
+## Limits
 
-- **Simulation mononœud. Aucun consensus BFT.** Un seul nœud a exécuté le
-  workflow ; rien n'a été répliqué ni voté.
-- **L'ancrage ne prouve pas la vérité du contenu.** Il établit qu'une adresse a
-  soumis cette empreinte à ce bloc — une datation attribuée, rien de plus. Ni
-  validité juridique, ni provenance réelle, ni identité humaine derrière
-  l'adresse.
-- **L'ancrage borne le plus tard, jamais le plus tôt.** Il ne dit pas que
-  l'instantané existait avant ce bloc.
-- **Sepolia est un réseau de test** : aucune valeur, aucune garantie de
-  pérennité de l'historique.
-- La vérification de source Sourcify est **rapportée par Remix**, non revérifiée
-  indépendamment.
+- **Single-node simulation. No BFT consensus.** One node ran the workflow;
+  nothing was replicated or voted on.
+- **Anchoring does not prove the content is true.** It establishes that an
+  address submitted this digest at this block — an attributed timestamp, nothing
+  more. No legal validity, no real provenance, no human identity behind the
+  address.
+- **Anchoring bounds the latest, never the earliest.** It does not say the
+  snapshot existed before that block.
+- **Sepolia is a test network**: no value, and no guarantee that its history
+  will persist.
+- Sourcify source verification is **as reported by Remix**, not independently
+  re-verified.
 
-## Structure utile
+## Repository structure that matters
 
 ```
-contracts/LegalEvidenceAnchor.sol      le contrat d'ancrage
-test/LegalEvidenceAnchor.test.ts       les 7 contrôles
-scripts/                               déploiement et lecture (viem)
-anchors/                               reçus du premier ancrage, JSON et Markdown
+contracts/LegalEvidenceAnchor.sol      the anchoring contract
+test/LegalEvidenceAnchor.test.ts       the 7 checks
+scripts/                               deployment and read (viem)
+anchors/                               first-anchor receipts, JSON and Markdown
 legal-evidence-consensus-workflow/
-    main.ts                            point d'entrée CRE
-    gouverneur.ts                      15 codes de défaut, verdicts
-    portee.ts                          ce qui est affiché ou masqué
-    rapport.ts                         sérialisation canonique et empreintes
-    vecteurs_p8_v07.ts                 instantané scellé + oracle (ne pas modifier)
-    admission_fixture_v01.ts           fixture d'admission préenregistrée
-SCOPE_FREEZE_… / AUDIT_… (dépôt parent) gels de périmètre et audits datés
-CURRENT_STATUS.md                      état actuel, distinct des audits datés
+    main.ts                            CRE entry point
+    gouverneur.ts                      15 defect codes, verdicts
+    portee.ts                          what is shown or withheld
+    rapport.ts                         canonical serialisation and digests
+    vecteurs_p8_v07.ts                 sealed snapshot + oracle (do not modify)
+    admission_fixture_v01.ts           preregistered admission fixture
+SCOPE_FREEZE_… / AUDIT_… (parent repo) dated scope freezes and audits
+CURRENT_STATUS.md / _FR.md             current state, distinct from dated audits
 ```
 
-`my-calculator-workflow/` est le gabarit CRE d'origine. Il ne participe pas à la
-démonstration.
+`my-calculator-workflow/` is the original CRE template. It takes no part in the
+demonstration.
 
-## Statut
+## Status
 
-Prototype de recherche pour le BLI Legal Tech Hackathon 2. Voir
-[`CURRENT_STATUS.md`](CURRENT_STATUS.md) pour ce qui est démontré et ce qui ne
-l'est pas.
+Research prototype for the BLI Legal Tech Hackathon 2. See
+[`CURRENT_STATUS.md`](CURRENT_STATUS.md) for what is demonstrated and what is
+not.
 
-Aucune licence n'a encore été choisie pour ce dépôt.
+No licence has yet been chosen for this repository.
