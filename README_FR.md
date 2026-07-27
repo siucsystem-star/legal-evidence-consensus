@@ -134,13 +134,31 @@ SCOPE_FREEZE_… / AUDIT_… (dépôt parent) gels de périmètre et audits dat�
 CURRENT_STATUS.md / _FR.md             état actuel, distinct des audits datés
 ```
 
-`my-calculator-workflow/` est le gabarit CRE d'origine. Il ne participe pas à la
-démonstration.
-
 ## Statut
 
 Prototype de recherche pour le BLI Legal Tech Hackathon 2. Voir
 [`CURRENT_STATUS_FR.md`](CURRENT_STATUS_FR.md) pour ce qui est démontré et ce qui ne
 l'est pas.
 
-Aucune licence n'a encore été choisie pour ce dépôt.
+## Licence
+
+Copyright (c) 2026 Systèmes de cohérence Coherix inc. **Tous droits réservés.**
+
+Ce dépôt est publié pour être **lu et vérifié**, non réutilisé.
+
+Sont permis : le lire ; le consulter et le forker à l'intérieur de GitHub, comme
+le prévoient les conditions d'utilisation de GitHub ; le cloner ou le télécharger
+et effectuer les copies techniques nécessaires pour installer ses dépendances et
+l'exécuter localement, aux seules fins de contrôler les résultats énoncés ; en
+citer de courts extraits avec attribution.
+
+Republier, mettre en miroir ou redistribuer hors d'un fork GitHub, modifier,
+intégrer à un autre projet ou utiliser comme données d'entraînement exigent une
+autorisation écrite préalable. **Aucune licence de brevet n'est accordée.**
+
+Les dépendances tierces demeurent régies par leurs propres licences ; le présent
+avis ne les remplace pas.
+
+Être lisible publiquement n'est pas être open source. Ce dépôt ne porte aucune
+licence approuvée par l'OSI, et c'est une décision, pas un oubli. Texte complet :
+[`LICENSE`](LICENSE).

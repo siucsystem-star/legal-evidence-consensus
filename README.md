@@ -139,13 +139,29 @@ SCOPE_FREEZE_… / AUDIT_… (parent repo) dated scope freezes and audits
 CURRENT_STATUS.md / _FR.md             current state, distinct from dated audits
 ```
 
-`my-calculator-workflow/` is the original CRE template. It takes no part in the
-demonstration.
-
 ## Status
 
 Research prototype for the BLI Legal Tech Hackathon 2. See
 [`CURRENT_STATUS.md`](CURRENT_STATUS.md) for what is demonstrated and what is
 not.
 
-No licence has yet been chosen for this repository.
+## Licence
+
+Copyright (c) 2026 Systèmes de cohérence Coherix inc. **All rights reserved.**
+
+This repository is published to be **read and verified**, not reused.
+
+Permitted: reading it; viewing and forking it within GitHub, as the GitHub Terms
+of Service provide; cloning or downloading it and making the technical copies
+needed to install its dependencies and run it locally, for the sole purpose of
+checking the stated results; and quoting short excerpts with attribution.
+
+Republishing, mirroring or redistributing it outside a GitHub fork, modifying it,
+reusing it in another project, and using it as machine-learning training data
+require prior written permission. **No patent licence is granted.**
+
+Third-party dependencies remain governed by their own licences; this notice does
+not replace them.
+
+Public readability is not open source. This repository carries no OSI-approved
+licence, and that is a decision, not an oversight. Full terms: [`LICENSE`](LICENSE).

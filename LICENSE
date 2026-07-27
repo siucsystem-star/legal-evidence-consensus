@@ -1,0 +1,189 @@
+Copyright (c) 2026 Systèmes de cohérence Coherix inc.
+All rights reserved — Tous droits réservés.
+
+================================================================================
+ENGLISH
+================================================================================
+
+WHY THIS REPOSITORY IS PUBLIC
+
+This repository is published so that the judges of the BLI Legal Tech Hackathon
+2, and any other reader, can READ the source, reproduce the results described in
+README.md, and evaluate the work. That is the entire purpose of the publication.
+
+Beyond the rights set out below, the rights the GitHub Terms of Service confer
+on Users of that service, and any right conferred by applicable law, no further
+right is granted. Being publicly readable is not the same as being open source:
+this repository carries no OSI-approved licence, and none is implied. That is a
+deliberate decision, not an oversight.
+
+PERMITTED
+
+  1. Reading and consulting the source code and the documentation.
+  2. Viewing and forking this repository within GitHub, to the extent the GitHub
+     Terms of Service confer that right on Users of the service.
+  3. Cloning or downloading the repository, and making the temporary technical
+     copies strictly necessary to install its dependencies and run it locally,
+     for the sole purpose of verifying the results stated in README.md and
+     CURRENT_STATUS.md.
+  4. Quoting short excerpts, with attribution, as permitted by applicable
+     copyright law.
+
+NOT PERMITTED without prior written permission from the copyright holder
+
+Subject to the rights granted above, to the rights the GitHub Terms of Service
+confer on Users of that service, and to any right conferred by applicable law:
+
+  1. Republishing, mirroring or redistributing this repository, in whole or in
+     part, otherwise than by forking it within GitHub.
+  2. Modifying it, or creating derivative works from it.
+  3. Incorporating it, in whole or in part, into any other project, product or
+     service, whether commercial or not.
+  4. Exploiting the content in any way beyond the limited verification permitted
+     above.
+  5. Using it to train, fine-tune, evaluate or benchmark a machine-learning
+     model.
+
+GITHUB HOSTING
+
+This repository is hosted on GitHub. By publishing it publicly, the copyright
+holder grants the rights the GitHub Terms of Service require, including the
+right of other Users to view and fork it within the service. Where anything in
+this notice would conflict with those rights, those rights prevail. This notice
+governs everything else.
+
+PATENTS
+
+No patent licence is granted, expressly or by implication, by this notice or by
+the publication of this repository. All patent rights are reserved.
+
+TRADEMARKS
+
+No trademark right is granted by this notice.
+
+THIRD-PARTY MATERIALS
+
+This notice applies only to the content in which Systèmes de cohérence Coherix
+inc. holds the rights. Dependencies, libraries, toolchains and any other
+third-party material referenced, imported or installed remain governed by their
+own licences. Nothing in this notice purports to revoke, replace or restrict
+those terms.
+
+ON-CHAIN AND PUBLIC DATA
+
+The Ethereum Sepolia transaction, the contract address and the digests recorded
+under anchors/ are public data on a public network. This notice does not, and
+could not, restrict their use.
+
+NO WARRANTY
+
+This software is provided "as is", without warranty of any kind, express or
+implied, including but not limited to the warranties of merchantability, fitness
+for a particular purpose and non-infringement. In no event shall the copyright
+holder be liable for any claim, damages or other liability, whether in contract,
+tort or otherwise, arising from, out of or in connection with the software or
+its use.
+
+This software is a research prototype. It establishes no legal validity and
+gives no legal advice.
+
+REQUESTING A LICENCE
+
+Reuse beyond what is permitted above is possible, but requires a written
+agreement. Requests may be addressed to the repository owner through GitHub:
+https://github.com/siucsystem-star
+
+================================================================================
+FRANÇAIS
+================================================================================
+
+POURQUOI CE DÉPÔT EST PUBLIC
+
+Ce dépôt est publié pour que les juges du BLI Legal Tech Hackathon 2, et tout
+autre lecteur, puissent LIRE le code source, reproduire les résultats décrits
+dans README_FR.md et évaluer le travail. C'est la totalité de l'objet de cette
+publication.
+
+Hormis les droits énoncés ci-dessous, ceux que les conditions d'utilisation de
+GitHub confèrent aux utilisateurs de ce service et ceux prévus par la loi
+applicable, aucun autre droit n'est accordé. Être publiquement lisible n'est pas
+être open source : ce dépôt ne porte aucune licence approuvée par l'OSI, et
+aucune n'est sous-entendue. C'est une décision, pas un oubli.
+
+PERMIS
+
+  1. Lire et consulter le code source et la documentation.
+  2. Consulter et forker ce dépôt à l'intérieur de GitHub, dans la mesure où les
+     conditions d'utilisation de GitHub confèrent ce droit aux utilisateurs du
+     service.
+  3. Cloner ou télécharger le dépôt, et effectuer les copies techniques
+     temporaires strictement nécessaires pour installer ses dépendances et
+     l'exécuter localement, aux seules fins de vérifier les résultats énoncés
+     dans README_FR.md et CURRENT_STATUS_FR.md.
+  4. Citer de courts extraits, avec attribution, dans les limites permises par
+     le droit d'auteur applicable.
+
+NON PERMIS sans autorisation écrite préalable du titulaire des droits
+
+Sous réserve des droits accordés ci-dessus, de ceux que les conditions
+d'utilisation de GitHub confèrent aux utilisateurs de ce service et de ceux
+prévus par la loi applicable :
+
+  1. Republier, mettre en miroir ou redistribuer ce dépôt, en tout ou en partie,
+     autrement qu'en le forkant à l'intérieur de GitHub.
+  2. Le modifier ou en tirer des œuvres dérivées.
+  3. L'intégrer, en tout ou en partie, à un autre projet, produit ou service,
+     commercial ou non.
+  4. Exploiter le contenu de quelque manière que ce soit au-delà de la
+     vérification limitée permise ci-dessus.
+  5. L'utiliser pour entraîner, affiner, évaluer ou étalonner un modèle
+     d'apprentissage automatique.
+
+HÉBERGEMENT GITHUB
+
+Ce dépôt est hébergé sur GitHub. En le publiant publiquement, le titulaire des
+droits accorde les droits qu'exigent les conditions d'utilisation de GitHub,
+dont celui, pour les autres utilisateurs, de le consulter et de le forker à
+l'intérieur du service. Là où le présent avis entrerait en conflit avec ces
+droits, ces droits prévalent. Le présent avis régit tout le reste.
+
+BREVETS
+
+Aucune licence de brevet n'est accordée, expressément ou implicitement, par le
+présent avis ni par la publication de ce dépôt. Tous les droits de brevet sont
+réservés.
+
+MARQUES
+
+Aucun droit de marque n'est accordé par le présent avis.
+
+ÉLÉMENTS TIERS
+
+Le présent avis ne vise que le contenu dont Systèmes de cohérence Coherix inc.
+détient les droits. Les dépendances, bibliothèques, chaînes d'outils et tout
+autre élément tiers référencé, importé ou installé demeurent régis par leurs
+propres licences. Rien dans le présent avis ne prétend révoquer, remplacer ni
+restreindre ces conditions.
+
+DONNÉES PUBLIQUES ET SUR CHAÎNE
+
+La transaction Ethereum Sepolia, l'adresse du contrat et les empreintes
+consignées sous anchors/ sont des données publiques sur un réseau public. Le
+présent avis n'en restreint pas l'usage, et ne le pourrait pas.
+
+AUCUNE GARANTIE
+
+Ce logiciel est fourni « tel quel », sans garantie d'aucune sorte, expresse ou
+implicite, y compris les garanties de qualité marchande, d'adéquation à un usage
+particulier et d'absence de contrefaçon. Le titulaire des droits ne pourra en
+aucun cas être tenu responsable d'une réclamation, d'un dommage ou de toute
+autre responsabilité découlant du logiciel ou de son usage.
+
+Ce logiciel est un prototype de recherche. Il n'établit aucune validité
+juridique et ne constitue pas un avis juridique.
+
+DEMANDER UNE LICENCE
+
+Une réutilisation au-delà de ce qui est permis ci-dessus est possible, mais
+exige une entente écrite. Les demandes peuvent être adressées au propriétaire du
+dépôt via GitHub : https://github.com/siucsystem-star

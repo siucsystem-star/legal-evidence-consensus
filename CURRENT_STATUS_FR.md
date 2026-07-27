@@ -3,7 +3,8 @@
 # État actuel
 
 **Date :** 2026-07-27
-**Commit :** `dcd362b` — *feat: add executable LEC workflow and Sepolia evidence anchor*
+**S'applique à :** la tête de `main` à cette date. Les empreintes de commit sont
+visibles dans l'historique Git ; ce document ne redit pas la sienne.
 
 Les audits et gels de périmètre antérieurs — `AUDIT_CRE_BASELINE_2026-07-25.md`,
 `SCOPE_FREEZE_LEGAL_EVIDENCE_CONSENSUS_V01_2026-07-25.md` et les autres documents
@@ -56,32 +57,31 @@ Le présent document est l'état actuel ; en cas d'écart, c'est lui qui fait fo
 - **Aucune validation en conditions réelles.** L'article publié le dit lui-même :
   la validation en déploiement reste une question ouverte.
 - **Aucune interface.** La démonstration passe par la ligne de commande.
-- **Aucune licence choisie.** Le dépôt ne peut pas être qualifié d'open source.
+- **Tous droits réservés.** La décision de licence est prise : aucun droit de
+  réutilisation n'est accordé. Le dépôt est publiquement lisible et n'est **pas**
+  open source. Rien ici ne peut être copié, modifié ou réutilisé sans
+  autorisation écrite, et aucune licence de brevet n'est accordée. Voir
+  `LICENSE`.
 
 ## Prochaine étape minimale pour la soumission
 
-1. Retirer ou expliquer `my-calculator-workflow/` — voir ci-dessous.
-2. Choisir une licence, ou déclarer explicitement que le dépôt reste
-   « tous droits réservés ».
-3. Pousser le dépôt sur GitHub.
+1. Retirer ou expliquer `my-calculator-workflow/` — **fait**, retiré au commit
+   `c31523c`.
+2. Choisir une licence — **fait**. Tous droits réservés ; voir `LICENSE`.
+3. Pousser le dépôt sur GitHub — **fait** :
+   <https://github.com/siucsystem-star/legal-evidence-consensus>
 4. Enregistrer une démonstration courte : la simulation CRE sur les deux cas,
-   puis la transaction d'ancrage sur Etherscan.
-5. Soumettre sur DoraHacks.
+   puis la transaction d'ancrage sur Etherscan. **Reste à faire.**
+5. Soumettre sur DoraHacks, date limite 2026-11-01. **Reste à faire.**
 
 Rien dans cette liste n'exige de nouveau développement. Ce qui manque est de la
 publication, pas de la recherche.
 
-## `my-calculator-workflow/` — peut être retiré
+## `my-calculator-workflow/` — retiré
 
-Vérifié : **aucune référence** dans `project.yaml`, dans le workflow LEC, dans
-`hardhat.config.ts`, dans `scripts/` ni dans `test/`. La seule mention figure
-dans `AUDIT_CRE_BASELINE_2026-07-25.md`, qui le décrit comme le gabarit d'origine
-— un document daté, qui reste exact pour sa date.
-
-Il peut donc être retiré sans rien casser. **Il ne l'a pas été** : la décision
-et le commit de suppression appartiennent à Christian St-Louis.
-
-Argument pour le retirer : un juge qui ouvre le dépôt et tombe d'abord sur
-« Hello world! Workflow triggered » se fait une première idée qui ne correspond
-pas au projet. Argument pour le garder : il documente la ligne de base auditée
-d'où part le travail.
+Le gabarit CRE « hello world » d'origine a été retiré au commit `c31523c`. Avant
+retrait, il avait été vérifié qu'il n'existait **aucune référence** dans
+`project.yaml`, dans le workflow LEC, dans `hardhat.config.ts`, dans `scripts/`
+ni dans `test/`. La seule mention restante figure dans
+`AUDIT_CRE_BASELINE_2026-07-25.md`, qui le décrit comme le gabarit de départ —
+un document daté, qui reste exact pour sa date.

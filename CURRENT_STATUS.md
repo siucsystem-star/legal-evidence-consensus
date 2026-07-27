@@ -3,7 +3,8 @@
 # Current status
 
 **Date:** 2026-07-27
-**Commit:** `dcd362b` — *feat: add executable LEC workflow and Sepolia evidence anchor*
+**Applies to:** the head of `main` on that date. Commit hashes are visible in the
+Git history; this document does not restate its own.
 
 Earlier audits and scope freezes — `AUDIT_CRE_BASELINE_2026-07-25.md`,
 `SCOPE_FREEZE_LEGAL_EVIDENCE_CONSENSUS_V01_2026-07-25.md` and the other dated
@@ -57,32 +58,29 @@ one governs.
 - **No validation under real-world conditions.** The published paper says so
   itself: validation in deployment remains an open research direction.
 - **No interface.** The demonstration runs on the command line.
-- **No licence chosen.** The repository cannot be described as open source.
+- **All rights reserved.** A licence decision has been made: no reuse right is
+  granted. The repository is publicly readable and is **not** open source.
+  Nothing here may be copied, modified or reused without written permission, and
+  no patent licence is granted. See `LICENSE`.
 
 ## Minimum next steps for submission
 
-1. Remove or explain `my-calculator-workflow/` — see below.
-2. Choose a licence, or state explicitly that the repository remains
-   all-rights-reserved.
-3. Push the repository to GitHub.
+1. Remove or explain `my-calculator-workflow/` — **done**, removed in commit
+   `c31523c`.
+2. Choose a licence — **done**. All rights reserved; see `LICENSE`.
+3. Push the repository to GitHub — **done**:
+   <https://github.com/siucsystem-star/legal-evidence-consensus>
 4. Record a short demonstration: the CRE simulation on both cases, then the
-   anchoring transaction on Etherscan.
-5. Submit on DoraHacks.
+   anchoring transaction on Etherscan. **Remaining.**
+5. Submit on DoraHacks, deadline 2026-11-01. **Remaining.**
 
 Nothing on this list requires new development. What is missing is publication,
 not research.
 
-## `my-calculator-workflow/` — can be removed
+## `my-calculator-workflow/` — removed
 
-Verified: **no reference** in `project.yaml`, in the LEC workflow, in
-`hardhat.config.ts`, in `scripts/` or in `test/`. The only mention is in
-`AUDIT_CRE_BASELINE_2026-07-25.md`, which describes it as the original template
-— a dated document, still accurate for its date.
-
-It can therefore be removed without breaking anything. **It has not been**: the
-decision and the removal commit belong to Christian St-Louis.
-
-Argument for removing it: a judge who opens the repository and first lands on
-"Hello world! Workflow triggered" forms a first impression that does not match
-the project. Argument for keeping it: it documents the audited baseline the work
-started from.
+The original CRE "hello world" template was removed in commit `c31523c`. Before
+removal it was verified to have **no reference** in `project.yaml`, in the LEC
+workflow, in `hardhat.config.ts`, in `scripts/` or in `test/`. The only remaining
+mention is in `AUDIT_CRE_BASELINE_2026-07-25.md`, which describes it as the
+starting template — a dated document, still accurate for its date.
