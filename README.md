@@ -18,31 +18,28 @@ is about to decide.
 
 ## The proposal
 
-Reality Floor governs a claim against a **sealed evidence snapshot**, timestamped
-and signed. The governor returns a verdict — `AUTORISE`, `REFORMULER` or
+Reality Floor governs a claim against a **sealed evidence snapshot**, admitted by its preregistered
+byte hash, event-hash chain and Ed25519-signed canonical root attestation. The governor returns a verdict — `AUTORISE`, `REFORMULER` or
 `BLOQUE` — together with named defect codes drawn from fifteen:
 `VALEUR_PERIMEE`, `SOURCE_INCONNUE`, `PREUVE_NON_CONCORDANTE`,
 `SECTION_NON_CONCORDANTE`, and others.
 
 The resulting report is canonically serialised, so its SHA-256 is reproducible
-byte for byte. That digest is what gets anchored.
+byte for byte. In the existing Sepolia demonstration, the **snapshot digest**
+was anchored manually; the report digests are generated locally and are not
+claimed to have been anchored by the workflow.
 
 *(Identifiers are kept in French: they are the actual constants in the code.)*
 
 ## The path actually demonstrated
 
 ```
-sealed evidence snapshot  (SHA-256 9f694a38…, Ed25519-signed, 44 events)
-        ↓
-governor  (mesurer → verdict + defect codes)
-        ↓
-scope     (what is shown, what stays withheld)
-        ↓
-canonical report → reproducible SHA-256
-        ↓
-CRE simulation  (Chainlink CRE, single node)
-        ↓   ← separate manual step: the workflow does not call the chain
-digest anchored on Ethereum Sepolia
+CRE single-node simulation:
+sealed snapshot -> byte hash + Ed25519 root attestation + 44 event hashes
+        -> governor -> display scope -> canonical reports + report SHA-256
+
+Separate manual Sepolia demonstration:
+sealed snapshot SHA-256 -> LegalEvidenceAnchor -> public read-back
 ```
 
 Every step of the path shown above was actually executed. The demonstration data
@@ -71,7 +68,7 @@ Agreement with the sealed oracle: **2/2**.
 
 ```bash
 cd legal-evidence-consensus-workflow
-bun install
+bun install --frozen-lockfile
 cd ..
 cre workflow simulate legal-evidence-consensus-workflow --target staging-settings
 ```
@@ -80,10 +77,26 @@ For each case the output gives: identifier, verdict, defect codes, batch digest,
 report SHA-256, and agreement with the oracle. On every run it restates that this
 is a single-node simulation with no anchoring.
 
+### Admission checks
+
+```bash
+cd legal-evidence-consensus-workflow
+bun run typecheck
+bun run test:admission
+cd ..
+```
+
+The 13 checks include valid admission, altered bytes, invalid detached and
+embedded signatures, changed attestation payload, broken event sequence/links/
+hashes, a mismatched final root, and integrated rejection before a verdict is
+returned. The root attestation is verified cryptographically on every run;
+the historical fixture's cached `verifies` flag is not treated as verification.
+The two valid-case report hashes remain unchanged.
+
 ### The contract and its 7 tests
 
 ```bash
-npm install
+npm ci
 npx hardhat compile
 npx hardhat test
 ```

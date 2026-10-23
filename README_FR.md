@@ -19,27 +19,25 @@ au moment où quelqu'un s'apprête à décider.
 ## La proposition
 
 Reality Floor gouverne une affirmation contre un **instantané de preuve scellé**,
-horodaté et signé. Le gouverneur rend un verdict — `AUTORISE`, `REFORMULER` ou
+admis par son empreinte préenregistrée, sa chaîne d’événements et l’attestation
+canonique de racine signée en Ed25519. Le gouverneur rend un verdict — `AUTORISE`, `REFORMULER` ou
 `BLOQUE` — accompagné de codes de défaut nommés parmi quinze : `VALEUR_PERIMEE`,
 `SOURCE_INCONNUE`, `PREUVE_NON_CONCORDANTE`, `SECTION_NON_CONCORDANTE`, etc.
 
 Le rapport produit est sérialisé de façon canonique, donc son SHA-256 est
-reproductible octet pour octet. C'est cette empreinte qui est ancrée.
+reproductible octet pour octet. Dans la démonstration Sepolia existante,
+l’empreinte de **l’instantané** a été ancrée manuellement. Les empreintes des
+rapports sont produites localement ; leur ancrage par le workflow n’est pas revendiqué.
 
 ## Le chemin réellement démontré
 
 ```
-instantané de preuve scellé  (SHA-256 9f694a38…, signé Ed25519, 44 événements)
-        ↓
-gouverneur  (mesurer → verdict + codes de défaut)
-        ↓
-portée      (ce qui est affiché, ce qui reste masqué)
-        ↓
-rapport canonique → SHA-256 reproductible
-        ↓
-simulation CRE  (Chainlink CRE, mononœud)
-        ↓   ← étape manuelle distincte : le workflow n'appelle pas la chaîne
-empreinte ancrée sur Ethereum Sepolia
+Simulation CRE mononœud :
+instantané -> SHA-256 + attestation Ed25519 + 44 empreintes d’événements
+        -> gouverneur -> portée d’affichage -> rapports canoniques + SHA-256
+
+Démonstration Sepolia manuelle distincte :
+SHA-256 de l’instantané -> LegalEvidenceAnchor -> relecture publique
 ```
 
 Chaque étape du parcours présenté a été réellement exécutée. Les données de démonstration sont explicitement identifiées comme telles, et l'ancrage Sepolia a été effectué séparément du workflow CRE.
@@ -66,7 +64,7 @@ Concordance avec l'oracle scellé : **2/2**.
 
 ```bash
 cd legal-evidence-consensus-workflow
-bun install
+bun install --frozen-lockfile
 cd ..
 cre workflow simulate legal-evidence-consensus-workflow --target staging-settings
 ```
@@ -75,10 +73,26 @@ La sortie donne, pour chaque cas : identifiant, verdict, codes de défaut,
 empreinte du lot, SHA-256 du rapport, et la concordance avec l'oracle. Elle
 rappelle à chaque exécution qu'il s'agit d'une simulation mononœud sans ancrage.
 
+### Contrôles d’admission
+
+```bash
+cd legal-evidence-consensus-workflow
+bun run typecheck
+bun run test:admission
+cd ..
+```
+
+Les 13 contrôles couvrent notamment les octets altérés, les signatures détachée
+et embarquée invalides, l’attestation modifiée, les séquences/liens/empreintes
+d’événements incorrects et une racine finale différente. Les tests intégrés
+exigent un rejet avant tout verdict. La signature est recalculée à chaque
+exécution ; le booléen historique `verifies` n’est pas une vérification.
+Les empreintes des deux rapports valides restent identiques.
+
 ### Le contrat et ses 7 tests
 
 ```bash
-npm install
+npm ci
 npx hardhat compile
 npx hardhat test
 ```
