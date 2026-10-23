@@ -1,0 +1,65 @@
+{
+  "note": "Developer-authored expectations fixed before first execution; not independent annotation or external preregistration.",
+  "cases": [
+    {
+      "id": "current-fee",
+      "outcome": "MATCHES_REGISTER",
+      "reason": "MATCH"
+    },
+    {
+      "id": "superseded-fee",
+      "outcome": "DOES_NOT_MATCH_REGISTER",
+      "reason": "SOURCE_SUPERSEDED"
+    },
+    {
+      "id": "unknown-source",
+      "outcome": "INSUFFICIENT_EVIDENCE",
+      "reason": "SOURCE_UNKNOWN"
+    },
+    {
+      "id": "missing-citation",
+      "outcome": "INSUFFICIENT_EVIDENCE",
+      "reason": "CITATION_MISSING"
+    },
+    {
+      "id": "qualified-delay",
+      "outcome": "MATCHES_REGISTER",
+      "reason": "MATCH"
+    },
+    {
+      "id": "omitted-condition",
+      "outcome": "DOES_NOT_MATCH_REGISTER",
+      "reason": "CONDITION_OMITTED"
+    },
+    {
+      "id": "changed-condition",
+      "outcome": "DOES_NOT_MATCH_REGISTER",
+      "reason": "CONDITION_CHANGED"
+    },
+    {
+      "id": "wrong-unit",
+      "outcome": "DOES_NOT_MATCH_REGISTER",
+      "reason": "UNIT_MISMATCH"
+    },
+    {
+      "id": "before-amendment-known",
+      "outcome": "MATCHES_REGISTER",
+      "reason": "MATCH"
+    },
+    {
+      "id": "retrospective-view",
+      "outcome": "MATCHES_REGISTER",
+      "reason": "MATCH"
+    },
+    {
+      "id": "wrong-value",
+      "outcome": "DOES_NOT_MATCH_REGISTER",
+      "reason": "VALUE_MISMATCH"
+    },
+    {
+      "id": "free-form-wording",
+      "outcome": "OUTSIDE_SUPPORTED_SCOPE",
+      "reason": "WORDING_NOT_SUPPORTED"
+    }
+  ]
+}

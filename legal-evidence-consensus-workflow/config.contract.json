@@ -1,0 +1,5 @@
+{
+  "schedule": "*/30 * * * * *",
+  "source": "embedded",
+  "sourceUrl": ""
+}

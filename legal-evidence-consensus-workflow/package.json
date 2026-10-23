@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "test:admission": "bun test ../review-tests/admission.test.ts"
+    "test:admission": "bun test ../review-tests/admission.test.ts",
+    "test:contract": "bun test ../review-tests/contract.test.ts",
+    "demo:contract": "bun run ../scripts/build-contract-demo.ts"
   },
   "license": "UNLICENSED",
   "dependencies": {

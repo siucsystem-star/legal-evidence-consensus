@@ -1,0 +1,571 @@
+{
+  "schema": "LEC-CONTRACT-REPORT-0.2",
+  "packageId": "fictional-contract-2026-v02",
+  "packageSha256": "bd7c9d86655131ff27019fb216be299623bdf61e6aa4bff4b3a67b950ad5b9a5",
+  "payloadSha256": "215c42054707f66b6356f8908bd6cc6ac5162a9e707db34acdd69836bf5306fa",
+  "claims": [
+    {
+      "id": "current-fee",
+      "claim": {
+        "id": "current-fee",
+        "text": "The monthly service fee is CAD 9,100.",
+        "key": "monthly_fee",
+        "value": 9100,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "amendment-1",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 9,100.",
+        "effectiveAt": "2026-05-01",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "MATCHES_REGISTER",
+      "reasons": [
+        "MATCH"
+      ],
+      "explanation": "The structured claim matches this registered fact, citation, units, condition and two dates; this is not a legal opinion.",
+      "comparedFact": {
+        "id": "fee-v2",
+        "key": "monthly_fee",
+        "value": 9100,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "amendment-1",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 9,100.",
+        "validFrom": "2026-04-01",
+        "knownFrom": "2026-04-05",
+        "supersedes": "fee-v1"
+      },
+      "citedSource": {
+        "id": "amendment-1",
+        "title": "Fictional amendment 1",
+        "text": "FICTIONAL AMENDMENT 1 — DEMONSTRATION ONLY\nNo real parties, obligations or legal advice.\n\n1.1 Effective date: 1 April 2026.\n2.1 The monthly service fee is CAD 9,100.\n2.2 This replaces section 2.1 of the fictional service agreement.\n3.1 The severity-one acknowledgement clause is unchanged.\n",
+        "sha256": "9ca7a9857fd1ed83cbe2946191b771d561a8e148efa4f2945261af43fb021486"
+      },
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "CHECKED",
+        "conditions": "CHECKED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "superseded-fee",
+      "claim": {
+        "id": "superseded-fee",
+        "text": "The monthly service fee is CAD 8,400.",
+        "key": "monthly_fee",
+        "value": 8400,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "agreement-2026",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 8,400.",
+        "effectiveAt": "2026-05-01",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "DOES_NOT_MATCH_REGISTER",
+      "reasons": [
+        "SOURCE_SUPERSEDED"
+      ],
+      "explanation": "This citation belongs to a fact superseded within the declared effective date and knowledge horizon.",
+      "comparedFact": {
+        "id": "fee-v2",
+        "key": "monthly_fee",
+        "value": 9100,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "amendment-1",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 9,100.",
+        "validFrom": "2026-04-01",
+        "knownFrom": "2026-04-05",
+        "supersedes": "fee-v1"
+      },
+      "citedSource": {
+        "id": "agreement-2026",
+        "title": "Fictional service agreement",
+        "text": "FICTIONAL SERVICE AGREEMENT — DEMONSTRATION ONLY\nNo real parties, obligations or legal advice.\n\n1.1 Effective date: 1 January 2026.\n2.1 The monthly service fee is CAD 8,400.\n3.1 For severity-one incidents, the provider must acknowledge the incident within 30 minutes.\n",
+        "sha256": "55c163d6a7c22a7c747000ed207a4dfad7558537a1fb1fc0714bc822a8f5bb45"
+      },
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "CHECKED",
+        "conditions": "NOT_REACHED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "unknown-source",
+      "claim": {
+        "id": "unknown-source",
+        "text": "The monthly service fee is CAD 9,100.",
+        "key": "monthly_fee",
+        "value": 9100,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "not-in-package",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 9,100.",
+        "effectiveAt": "2026-05-01",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "INSUFFICIENT_EVIDENCE",
+      "reasons": [
+        "SOURCE_UNKNOWN"
+      ],
+      "explanation": "The cited source is absent from this package.",
+      "comparedFact": null,
+      "citedSource": null,
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "NOT_REACHED",
+        "conditions": "NOT_REACHED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "missing-citation",
+      "claim": {
+        "id": "missing-citation",
+        "text": "The monthly service fee is CAD 9,100.",
+        "key": "monthly_fee",
+        "value": 9100,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "amendment-1",
+        "section": "2.1",
+        "quote": null,
+        "effectiveAt": "2026-05-01",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "INSUFFICIENT_EVIDENCE",
+      "reasons": [
+        "CITATION_MISSING"
+      ],
+      "explanation": "A source, section and exact quotation are required.",
+      "comparedFact": null,
+      "citedSource": null,
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "NOT_REACHED",
+        "conditions": "NOT_REACHED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "qualified-delay",
+      "claim": {
+        "id": "qualified-delay",
+        "text": "For severity-one incidents, the provider must acknowledge the incident within 30 minutes.",
+        "key": "acknowledgement_delay",
+        "value": 30,
+        "unit": "minutes",
+        "condition": "severity-one incidents",
+        "sourceId": "agreement-2026",
+        "section": "3.1",
+        "quote": "For severity-one incidents, the provider must acknowledge the incident within 30 minutes.",
+        "effectiveAt": "2026-05-01",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "MATCHES_REGISTER",
+      "reasons": [
+        "MATCH"
+      ],
+      "explanation": "The structured claim matches this registered fact, citation, units, condition and two dates; this is not a legal opinion.",
+      "comparedFact": {
+        "id": "ack-v1",
+        "key": "acknowledgement_delay",
+        "value": 30,
+        "unit": "minutes",
+        "condition": "severity-one incidents",
+        "sourceId": "agreement-2026",
+        "section": "3.1",
+        "quote": "For severity-one incidents, the provider must acknowledge the incident within 30 minutes.",
+        "validFrom": "2026-01-01",
+        "knownFrom": "2026-01-01",
+        "supersedes": null
+      },
+      "citedSource": {
+        "id": "agreement-2026",
+        "title": "Fictional service agreement",
+        "text": "FICTIONAL SERVICE AGREEMENT — DEMONSTRATION ONLY\nNo real parties, obligations or legal advice.\n\n1.1 Effective date: 1 January 2026.\n2.1 The monthly service fee is CAD 8,400.\n3.1 For severity-one incidents, the provider must acknowledge the incident within 30 minutes.\n",
+        "sha256": "55c163d6a7c22a7c747000ed207a4dfad7558537a1fb1fc0714bc822a8f5bb45"
+      },
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "CHECKED",
+        "conditions": "CHECKED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "omitted-condition",
+      "claim": {
+        "id": "omitted-condition",
+        "text": "The provider must acknowledge every incident within 30 minutes.",
+        "key": "acknowledgement_delay",
+        "value": 30,
+        "unit": "minutes",
+        "condition": null,
+        "sourceId": "agreement-2026",
+        "section": "3.1",
+        "quote": "For severity-one incidents, the provider must acknowledge the incident within 30 minutes.",
+        "effectiveAt": "2026-05-01",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "DOES_NOT_MATCH_REGISTER",
+      "reasons": [
+        "CONDITION_OMITTED"
+      ],
+      "explanation": "The claim omits or changes the registered condition of application.",
+      "comparedFact": {
+        "id": "ack-v1",
+        "key": "acknowledgement_delay",
+        "value": 30,
+        "unit": "minutes",
+        "condition": "severity-one incidents",
+        "sourceId": "agreement-2026",
+        "section": "3.1",
+        "quote": "For severity-one incidents, the provider must acknowledge the incident within 30 minutes.",
+        "validFrom": "2026-01-01",
+        "knownFrom": "2026-01-01",
+        "supersedes": null
+      },
+      "citedSource": {
+        "id": "agreement-2026",
+        "title": "Fictional service agreement",
+        "text": "FICTIONAL SERVICE AGREEMENT — DEMONSTRATION ONLY\nNo real parties, obligations or legal advice.\n\n1.1 Effective date: 1 January 2026.\n2.1 The monthly service fee is CAD 8,400.\n3.1 For severity-one incidents, the provider must acknowledge the incident within 30 minutes.\n",
+        "sha256": "55c163d6a7c22a7c747000ed207a4dfad7558537a1fb1fc0714bc822a8f5bb45"
+      },
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "CHECKED",
+        "conditions": "CHECKED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "changed-condition",
+      "claim": {
+        "id": "changed-condition",
+        "text": "For all incidents, the provider must acknowledge the incident within 30 minutes.",
+        "key": "acknowledgement_delay",
+        "value": 30,
+        "unit": "minutes",
+        "condition": "all incidents",
+        "sourceId": "agreement-2026",
+        "section": "3.1",
+        "quote": "For severity-one incidents, the provider must acknowledge the incident within 30 minutes.",
+        "effectiveAt": "2026-05-01",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "DOES_NOT_MATCH_REGISTER",
+      "reasons": [
+        "CONDITION_CHANGED"
+      ],
+      "explanation": "The claim omits or changes the registered condition of application.",
+      "comparedFact": {
+        "id": "ack-v1",
+        "key": "acknowledgement_delay",
+        "value": 30,
+        "unit": "minutes",
+        "condition": "severity-one incidents",
+        "sourceId": "agreement-2026",
+        "section": "3.1",
+        "quote": "For severity-one incidents, the provider must acknowledge the incident within 30 minutes.",
+        "validFrom": "2026-01-01",
+        "knownFrom": "2026-01-01",
+        "supersedes": null
+      },
+      "citedSource": {
+        "id": "agreement-2026",
+        "title": "Fictional service agreement",
+        "text": "FICTIONAL SERVICE AGREEMENT — DEMONSTRATION ONLY\nNo real parties, obligations or legal advice.\n\n1.1 Effective date: 1 January 2026.\n2.1 The monthly service fee is CAD 8,400.\n3.1 For severity-one incidents, the provider must acknowledge the incident within 30 minutes.\n",
+        "sha256": "55c163d6a7c22a7c747000ed207a4dfad7558537a1fb1fc0714bc822a8f5bb45"
+      },
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "CHECKED",
+        "conditions": "CHECKED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "wrong-unit",
+      "claim": {
+        "id": "wrong-unit",
+        "text": "For severity-one incidents, the provider must acknowledge the incident within 30 hours.",
+        "key": "acknowledgement_delay",
+        "value": 30,
+        "unit": "hours",
+        "condition": "severity-one incidents",
+        "sourceId": "agreement-2026",
+        "section": "3.1",
+        "quote": "For severity-one incidents, the provider must acknowledge the incident within 30 minutes.",
+        "effectiveAt": "2026-05-01",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "DOES_NOT_MATCH_REGISTER",
+      "reasons": [
+        "UNIT_MISMATCH"
+      ],
+      "explanation": "The declared units differ; no implicit conversion is performed.",
+      "comparedFact": {
+        "id": "ack-v1",
+        "key": "acknowledgement_delay",
+        "value": 30,
+        "unit": "minutes",
+        "condition": "severity-one incidents",
+        "sourceId": "agreement-2026",
+        "section": "3.1",
+        "quote": "For severity-one incidents, the provider must acknowledge the incident within 30 minutes.",
+        "validFrom": "2026-01-01",
+        "knownFrom": "2026-01-01",
+        "supersedes": null
+      },
+      "citedSource": {
+        "id": "agreement-2026",
+        "title": "Fictional service agreement",
+        "text": "FICTIONAL SERVICE AGREEMENT — DEMONSTRATION ONLY\nNo real parties, obligations or legal advice.\n\n1.1 Effective date: 1 January 2026.\n2.1 The monthly service fee is CAD 8,400.\n3.1 For severity-one incidents, the provider must acknowledge the incident within 30 minutes.\n",
+        "sha256": "55c163d6a7c22a7c747000ed207a4dfad7558537a1fb1fc0714bc822a8f5bb45"
+      },
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "CHECKED",
+        "conditions": "NOT_REACHED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "before-amendment-known",
+      "claim": {
+        "id": "before-amendment-known",
+        "text": "The monthly service fee is CAD 8,400.",
+        "key": "monthly_fee",
+        "value": 8400,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "agreement-2026",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 8,400.",
+        "effectiveAt": "2026-04-02",
+        "knowledgeAt": "2026-04-02"
+      },
+      "outcome": "MATCHES_REGISTER",
+      "reasons": [
+        "MATCH"
+      ],
+      "explanation": "The structured claim matches this registered fact, citation, units, condition and two dates; this is not a legal opinion.",
+      "comparedFact": {
+        "id": "fee-v1",
+        "key": "monthly_fee",
+        "value": 8400,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "agreement-2026",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 8,400.",
+        "validFrom": "2026-01-01",
+        "knownFrom": "2026-01-01",
+        "supersedes": null
+      },
+      "citedSource": {
+        "id": "agreement-2026",
+        "title": "Fictional service agreement",
+        "text": "FICTIONAL SERVICE AGREEMENT — DEMONSTRATION ONLY\nNo real parties, obligations or legal advice.\n\n1.1 Effective date: 1 January 2026.\n2.1 The monthly service fee is CAD 8,400.\n3.1 For severity-one incidents, the provider must acknowledge the incident within 30 minutes.\n",
+        "sha256": "55c163d6a7c22a7c747000ed207a4dfad7558537a1fb1fc0714bc822a8f5bb45"
+      },
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "CHECKED",
+        "conditions": "CHECKED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "retrospective-view",
+      "claim": {
+        "id": "retrospective-view",
+        "text": "The monthly service fee is CAD 9,100.",
+        "key": "monthly_fee",
+        "value": 9100,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "amendment-1",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 9,100.",
+        "effectiveAt": "2026-04-02",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "MATCHES_REGISTER",
+      "reasons": [
+        "MATCH"
+      ],
+      "explanation": "The structured claim matches this registered fact, citation, units, condition and two dates; this is not a legal opinion.",
+      "comparedFact": {
+        "id": "fee-v2",
+        "key": "monthly_fee",
+        "value": 9100,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "amendment-1",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 9,100.",
+        "validFrom": "2026-04-01",
+        "knownFrom": "2026-04-05",
+        "supersedes": "fee-v1"
+      },
+      "citedSource": {
+        "id": "amendment-1",
+        "title": "Fictional amendment 1",
+        "text": "FICTIONAL AMENDMENT 1 — DEMONSTRATION ONLY\nNo real parties, obligations or legal advice.\n\n1.1 Effective date: 1 April 2026.\n2.1 The monthly service fee is CAD 9,100.\n2.2 This replaces section 2.1 of the fictional service agreement.\n3.1 The severity-one acknowledgement clause is unchanged.\n",
+        "sha256": "9ca7a9857fd1ed83cbe2946191b771d561a8e148efa4f2945261af43fb021486"
+      },
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "CHECKED",
+        "conditions": "CHECKED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "wrong-value",
+      "claim": {
+        "id": "wrong-value",
+        "text": "The monthly service fee is CAD 9,200.",
+        "key": "monthly_fee",
+        "value": 9200,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "amendment-1",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 9,100.",
+        "effectiveAt": "2026-05-01",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "DOES_NOT_MATCH_REGISTER",
+      "reasons": [
+        "VALUE_MISMATCH"
+      ],
+      "explanation": "The value differs from the applicable registered fact.",
+      "comparedFact": {
+        "id": "fee-v2",
+        "key": "monthly_fee",
+        "value": 9100,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "amendment-1",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 9,100.",
+        "validFrom": "2026-04-01",
+        "knownFrom": "2026-04-05",
+        "supersedes": "fee-v1"
+      },
+      "citedSource": {
+        "id": "amendment-1",
+        "title": "Fictional amendment 1",
+        "text": "FICTIONAL AMENDMENT 1 — DEMONSTRATION ONLY\nNo real parties, obligations or legal advice.\n\n1.1 Effective date: 1 April 2026.\n2.1 The monthly service fee is CAD 9,100.\n2.2 This replaces section 2.1 of the fictional service agreement.\n3.1 The severity-one acknowledgement clause is unchanged.\n",
+        "sha256": "9ca7a9857fd1ed83cbe2946191b771d561a8e148efa4f2945261af43fb021486"
+      },
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "CHECKED",
+        "conditions": "CHECKED",
+        "wording": "CONTROLLED_TEMPLATE",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "free-form-wording",
+      "claim": {
+        "id": "free-form-wording",
+        "text": "The monthly service fee is CAD 9,100, and the provider is fully liable for any losses.",
+        "key": "monthly_fee",
+        "value": 9100,
+        "unit": "CAD/month",
+        "condition": null,
+        "sourceId": "amendment-1",
+        "section": "2.1",
+        "quote": "The monthly service fee is CAD 9,100.",
+        "effectiveAt": "2026-05-01",
+        "knowledgeAt": "2026-05-01"
+      },
+      "outcome": "OUTSIDE_SUPPORTED_SCOPE",
+      "reasons": [
+        "WORDING_NOT_SUPPORTED"
+      ],
+      "explanation": "This wording is outside the closed templates. No judgment of its meaning was made.",
+      "comparedFact": null,
+      "citedSource": null,
+      "checks": {
+        "packageIntegrity": "VERIFIED",
+        "packageSignature": "VERIFIED_DEMO_KEY",
+        "temporal": "NOT_REACHED",
+        "conditions": "NOT_REACHED",
+        "wording": "NOT_SUPPORTED",
+        "independentReading": "NOT_ASSESSED",
+        "corroboration": "NOT_ASSESSED",
+        "legalValidity": "NOT_ASSESSED",
+        "fullDocumentCoverage": "NOT_MEASURED"
+      }
+    }
+  ],
+  "scope": "Synthetic documents and manually authored facts/claims; closed wording templates only. Signature authenticates a local demonstration key, not a contracting party. No legal validity, independent reading, corroboration, DON consensus or chain write is established.",
+  "reportSha256": "d3d6c1d22b6c9993dcf8be96b9d2cc3a97a28072cc77e86da03aa9654b8f2524"
+}

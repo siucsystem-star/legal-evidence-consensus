@@ -2,103 +2,71 @@
 
 # Current status
 
-**Date:** 2026-10-23
-**Applies to:** the revision including the October 23 admission correction. Commit hashes are visible in the
-Git history; this document does not restate its own.
+Date: October 23, 2026. This document separates the original v0.1 workflow from
+the new contract demonstration 0.2. Historical freezes and audits retain their
+meaning at their own dates; they have not been rewritten.
 
-Earlier audits and scope freezes — `AUDIT_CRE_BASELINE_2026-07-25.md`,
-`SCOPE_FREEZE_LEGAL_EVIDENCE_CONSENSUS_V01_2026-07-25.md` and the other dated
-documents — describe the state of the project **at their date**. They have not
-been rewritten. This document is the current state; where the two differ, this
-one governs.
+## Contract demonstration 0.2 — executed
 
-## Technical review on October 23, 2026
+- A fictional English service agreement and amendment supply 3 manually
+  annotated facts and 12 manually structured claims. The checker demonstrates
+  current/superseded fees, missing or incorrect citations, omitted or changed
+  conditions, incompatible units, two temporal horizons and unsupported wording.
+- Exact package/document hashes and an Ed25519 signature over the complete
+  payload are checked. The pinned key is a demonstration key, not a verified
+  contracting-party identity.
+- **37 new tests and 13 existing admission tests pass (50 total, 0 failures).**
+  TypeScript checks pass. Node crypto separately verifies the payload signature.
+- The **actual CRE/QuickJS-WASM simulator passes in embedded and HTTP modes**;
+  both return the same full report as the locally generated JSON. HTTP fetches
+  the package from an immutable Git commit and rejects failed or altered input
+  without falling back to an embedded successful result.
+- The generated English report viewer was checked across all 12 cases, on
+  desktop and mobile, with no page errors or horizontal overflow. It displays
+  stored results; it does not make a live model or legal assessment.
+- A shuffled answer-free packet and two blank reader sheets are prepared.
+  **External readings completed: 0.** Expectations are developer-authored.
+- A silent 58-second walkthrough is generated from the report viewer's actual
+  screenshots. It is a report walkthrough, not a live terminal recording.
 
-- The original public entry point still governed a mismatched snapshot and
-  copied a fixture boolean instead of cryptographically verifying Ed25519.
-- `admission.ts` now checks the exact bytes, pinned public key, detached
-  Ed25519 root attestation and all 44 event hashes before constructing a view.
-- **13 admission checks passed**, TypeScript checks passed, and the actual
-  CRE/QuickJS-WASM simulation passed. Both valid report hashes are unchanged.
-- The unchanged Solidity contract was recompiled: **7 Hardhat tests passed**.
-- The historical 93/93 P8 result below was not rerun in this review. The
-  P5–P8 modules and sealed vectors are unchanged.
-- A local 2m40s demo video exists; public hosting and the DoraHacks submission
-  remain pending. The provided bounty description alone does not establish
-  eligibility for the CRE prize.
-- The existing Sepolia demonstration manually anchors the **snapshot** digest;
-  there is still no chain write from CRE. No new deployment, transaction or
-  DON consensus is claimed.
+Reproduction and scope: [CONTRACT_DEMO_V02.md](CONTRACT_DEMO_V02.md).
+Machine-readable evidence: [VERIFICATION_CONTRACT_V02.json](VERIFICATION_CONTRACT_V02.json).
 
-## Done and verified locally
+## Preserved v0.1 workflow
 
-- **Governor ported and executed.** 15 defect codes, verdicts `AUTORISE` /
-  `REFORMULER` / `BLOQUE`. The output depends on the input: an altered value
-  yields `INCOMPATIBILITE_ETAT_VIVANT`, an invented source `SOURCE_INCONNUE`, a
-  fabricated excerpt `PREUVE_NON_CONCORDANTE`.
-- **P8 v0.7 parity: 93/93, 0 failures**, under `cre workflow simulate`.
-- **CRE workflow v0.1 executable**, with entry point, configuration, and **2/2**
-  agreement with the sealed oracle.
-- **Reproducible digest chain**: canonically serialised report, SHA-256
-  identical byte for byte.
-- **`LegalEvidenceAnchor` contract**: 7 of 7 tests passed under Hardhat before
-  deployment. Solidity 0.8.28, EVM Cancun, optimizer enabled, 200 runs.
-- **The anchored digest equals the SHA-256 of the sealed snapshot**, and the
-  value expected by `ADMISSION_FIXTURE_MANIFEST_V01.json`, preregistered
-  **before** deployment. Verified offline.
-- **Repository hygiene**: `.env` and `secrets.yaml` excluded; no key and no
-  private RPC URL in any tracked file.
+The October 23 admission correction verifies pinned snapshot bytes, the detached
+registry-root attestation and all 44 event hashes before governance. The original
+governor, scope module, report module, sealed vectors, admission fixture, contract,
+tests and licence are unchanged by the 0.2 extension.
 
-## Publicly demonstrated
+The original CRE simulation was rerun: **2/2 oracle agreement**, identical prior
+report hashes and WASM hash. The historical **P8 93/93** result remains a historical
+result; that separate suite was not rerun in this review. The unchanged Solidity
+contract passed its 7 Hardhat tests in the preceding October 23 review; no further
+contract change or new deployment was made.
 
-- **Contract deployed on Ethereum Sepolia**:
-  `0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3`
-- **First anchor confirmed**, transaction
-  `0x2a7636259f1e766ddf37fefc922159e544b44f918d05a145a2884a991574c34d`,
-  block `11357728`, 2026-07-26T23:07:12Z, status `success`.
-- Receipts in `anchors/`, in JSON and Markdown.
-- Source verification: Sourcify `successful` **as reported by Remix** — reported
-  by the tool, not independently re-verified.
+The existing Sepolia transaction manually anchors the **v0.1 snapshot digest**:
+[transaction](https://sepolia.etherscan.io/tx/0x2a7636259f1e766ddf37fefc922159e544b44f918d05a145a2884a991574c34d).
+It does not anchor the new contract report or package. No new blockchain
+transaction, DON deployment or multi-node BFT consensus is claimed.
 
-## Not demonstrated
+## Video and submission
 
-- **No BFT consensus.** Every execution is single-node. Nothing was replicated,
-  nothing was voted on, no DON was used.
-- **No legal validity.** The system does not say what is admissible, nor what
-  carries evidentiary weight.
-- **Anchoring does not prove the content is true**, nor the real provenance of
-  the document, nor the human identity behind the submitting address.
-- **No chain read or write from the CRE workflow.** The workflow produces the
-  digest; the anchoring was done separately. The automatic junction does not
-  exist.
-- **No real legal corpus governed end to end.** The sealed CanLII Dunsmuir
-  record exists in the parent repository but is not consumed by the workflow.
-- **No validation under real-world conditions.** The published paper says so
-  itself: validation in deployment remains an open research direction.
-- **No interface.** The demonstration runs on the command line.
-- **All rights reserved.** A licence decision has been made: no reuse right is
-  granted. The repository is publicly readable and is **not** open source.
-  Nothing here may be copied, modified or reused without written permission, and
-  no patent licence is granted. See `LICENSE`.
+The [historical v0.1 video](https://drive.google.com/file/d/1ekUsWUq6MSm7QSFwHmPCXrOdXgb_QH8F/view?usp=sharing) is now identified on Drive; filename and
+27,203,766-byte size match the reviewed local file, and its viewer was reached
+without signing in. It does not show the 0.2 extension. The new walkthrough is
+provided separately with the research preview assets.
 
-## Minimum next steps for submission
+The DoraHacks submission is **not yet made**. The organizer announces October 31;
+the exact platform deadline and event-specific CRE bounty eligibility remain to
+be confirmed.
 
-1. Remove or explain `my-calculator-workflow/` — **done**, removed in commit
-   `c31523c`.
-2. Choose a licence — **done**. All rights reserved; see `LICENSE`.
-3. Push the repository to GitHub — **done**:
-   <https://github.com/siucsystem-star/legal-evidence-consensus>
-4. Record a short demonstration: the CRE simulation on both cases, then the
-   anchoring transaction on Etherscan. **Local video ready; public URL pending.**
-5. Submit on DoraHacks, organizer announcement: October 31, 2026; exact platform time to confirm. **Remaining.**
+## Explicit limits
 
-The admission correction is included in this revision. Video publication and
-the submission remain distinct steps.
-
-## `my-calculator-workflow/` — removed
-
-The original CRE "hello world" template was removed in commit `c31523c`. Before
-removal it was verified to have **no reference** in `project.yaml`, in the LEC
-workflow, in `hardhat.config.ts`, in `scripts/` or in `test/`. The only remaining
-mention is in `AUDIT_CRE_BASELINE_2026-07-25.md`, which describes it as the
-starting template — a dated document, still accurate for its date.
+The new structured checker is separate from the official Reality Floor core.
+It supports closed templates, not arbitrary contract interpretation or automatic
+fact extraction. It keeps independent reading, corroboration and legal validity
+as NOT_ASSESSED and full-document coverage as NOT_MEASURED. All sources are
+synthetic; a correct quote or signature does not establish truth. No Matt research
+code or data is redistributed. The public repository remains all rights reserved,
+with its existing verification permissions; it is not OSI open source.

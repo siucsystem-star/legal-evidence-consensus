@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-23",
+  "base_commit": "74f3d52a1d08d487015e27959d6dfc13de7c17ed",
+  "fixture_commit": "bfb17839e61f4c7e57d4d29e10a29ff9ca7a9590",
+  "review_type": "Developer verification; not independent validation or legal review",
+  "tests": {
+    "extension": 37,
+    "existing_admission": 13,
+    "total_passed": 50,
+    "failed": 0,
+    "typecheck": "passed"
+  },
+  "scenarios": {
+    "developer_authored": 12,
+    "all_expected_outputs_match": true,
+    "expectations_sha256": "723a79fa98b6a7227f0485342e5b02d244768165610c43f38bf8945f861f5515",
+    "freeze": "Local, before first candidate execution; not independently timestamped"
+  },
+  "cre_simulations": [
+    {
+      "mode": "embedded",
+      "result": "passed",
+      "wasm_sha256": "804109d3650584f88ce9fecf2b10ba5947e97e7a5ad5a29b78c28e240a98e700",
+      "report_sha256": "d3d6c1d22b6c9993dcf8be96b9d2cc3a97a28072cc77e86da03aa9654b8f2524"
+    },
+    {
+      "mode": "http",
+      "result": "passed",
+      "wasm_sha256": "804109d3650584f88ce9fecf2b10ba5947e97e7a5ad5a29b78c28e240a98e700",
+      "report_sha256": "d3d6c1d22b6c9993dcf8be96b9d2cc3a97a28072cc77e86da03aa9654b8f2524"
+    }
+  ],
+  "legacy_cre": {
+    "result": "passed",
+    "oracle": "2/2",
+    "previous_report_hashes_preserved": true
+  },
+  "interface": {
+    "desktop": "1600x1000",
+    "mobile": "390x844",
+    "cases_clicked": 12,
+    "page_errors": 0,
+    "horizontal_overflow": false
+  },
+  "preserved_files": [
+    "legal-evidence-consensus-workflow/main.ts",
+    "legal-evidence-consensus-workflow/admission.ts",
+    "legal-evidence-consensus-workflow/gouverneur.ts",
+    "legal-evidence-consensus-workflow/portee.ts",
+    "legal-evidence-consensus-workflow/rapport.ts",
+    "legal-evidence-consensus-workflow/vecteurs_p8_v07.ts",
+    "legal-evidence-consensus-workflow/admission_fixture_v01.ts",
+    "legal-evidence-consensus-workflow/ADMISSION_FIXTURE_MANIFEST_V01.json",
+    "contracts/LegalEvidenceAnchor.sol",
+    "test/LegalEvidenceAnchor.test.ts",
+    "LICENSE",
+    "legal-evidence-consensus-workflow/bun.lock"
+  ],
+  "video": {
+    "name": "Legal_Evidence_Consensus_v0.2_Walkthrough.mp4",
+    "sha256": "bed7cd061021ed08e9e7d254ffe8d0a56a8c9157d861118773d68d8c1fd0296c",
+    "bytes": 553201,
+    "kind": "Silent walkthrough of generated report screenshots, not a live terminal recording",
+    "full_decode": "passed"
+  },
+  "external_readings_completed": 0,
+  "new_blockchain_transactions": 0,
+  "don_deployments": 0,
+  "limits": [
+    "Fictional sources; manually authored annotations and claims",
+    "Closed templates only; no general legal language extraction",
+    "Signature uses a demonstration key, not contracting-party identity",
+    "No legal validity or full-document coverage established",
+    "HTTP simulation is single-node, not BFT consensus",
+    "Bounty eligibility unconfirmed"
+  ]
+}

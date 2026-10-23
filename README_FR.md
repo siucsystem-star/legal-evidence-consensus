@@ -1,5 +1,11 @@
 [English version](README.md)
 
+**Extension du 23 octobre :** une [démonstration contractuelle 0.2 en anglais](CONTRACT_DEMO_V02.md)
+ajoute un contrat et un avenant fictifs, des contrôles de conditions, les deux
+horloges, une [interface de lecture du rapport](docs/contract-demo.html) et un
+chemin HTTP pour un paquet signé. Ce nouveau contrôleur limité reste séparé du
+gouverneur historique v0.1. La description initiale du projet suit ci-dessous.
+
 # Legal Evidence Consensus — Reality Floor
 
 Distinguer *« quelqu'un l'a affirmé »* de *« une preuve l'appuie »*, et ancrer la

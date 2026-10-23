@@ -21,3 +21,20 @@ production-settings:
     workflow-path: "./main.ts"
     config-path: "./config.production.json"
     secrets-path: ""
+
+# Separate versioned entry; the historical v0.1 workflow and vectors are untouched.
+contract-settings:
+  user-workflow:
+    workflow-name: "legal-evidence-contract-demo-embedded"
+  workflow-artifacts:
+    workflow-path: "./contract-main.ts"
+    config-path: "./config.contract.json"
+    secrets-path: ""
+
+contract-http-settings:
+  user-workflow:
+    workflow-name: "legal-evidence-contract-demo-http"
+  workflow-artifacts:
+    workflow-path: "./contract-main.ts"
+    config-path: "./config.contract-http.json"
+    secrets-path: ""

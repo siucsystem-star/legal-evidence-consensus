@@ -1,104 +1,58 @@
 [English version](CURRENT_STATUS.md)
 
-# État actuel
+# État courant
 
-**Date :** 2026-10-23
-**S'applique à :** la révision comprenant le correctif d’admission du 23 octobre. Les empreintes de commit sont
-visibles dans l'historique Git ; ce document ne redit pas la sienne.
+Date : 23 octobre 2026. Le parcours historique v0.1 et la nouvelle démonstration
+contractuelle 0.2 restent séparés. Les audits et gels historiques restent datés.
 
-Les audits et gels de périmètre antérieurs — `AUDIT_CRE_BASELINE_2026-07-25.md`,
-`SCOPE_FREEZE_LEGAL_EVIDENCE_CONSENSUS_V01_2026-07-25.md` et les autres documents
-datés — décrivent l'état du projet **à leur date**. Ils n'ont pas été réécrits.
-Le présent document est l'état actuel ; en cas d'écart, c'est lui qui fait foi.
+## Extension contractuelle 0.2 — exécutée
 
-## Revue technique du 23 octobre 2026
+Un contrat et un avenant fictifs en anglais fournissent 3 faits annotés et 12
+affirmations structurées manuellement : tarif courant/périmé, citation absente ou
+incorrecte, condition omise/modifiée, unité différente, deux horizons temporels
+et formulation non prise en charge. Les empreintes exactes et la signature du
+payload complet sont vérifiées avec une clé de démonstration, sans authentifier
+un véritable signataire de contrat.
 
-- La version publique initiale exécutait le gouverneur malgré une empreinte
-  incorrecte et recopiait un booléen de fixture pour la vérification Ed25519.
-- Le nouveau module `admission.ts` vérifie les octets, la clé attendue,
-  l’attestation Ed25519 et la chaîne complète de 44 événements avant la vue.
-- **13 tests d’admission réussis**, contrôle TypeScript réussi et simulation
-  CRE/QuickJS-WASM réussie. Les deux rapports conservent leurs SHA-256 initiaux.
-- Le contrat inchangé a été recompilé : **7 tests réussis** sous Hardhat.
-- Le résultat historique P8 93/93 ci-dessous n’a pas été rejoué pendant cette
-  revue ; les modules P5–P8 et les vecteurs scellés sont inchangés.
-- La vidéo locale de 2 min 40 existe. Sa publication et le dépôt DoraHacks
-  restent à finaliser. L’admissibilité à la prime CRE n’est pas confirmée par
-  le seul texte descriptif de la prime.
-- L’ancrage reste manuel, sur l’empreinte de l’instantané, sans écriture CRE.
-  Aucun nouveau déploiement, transaction ni consensus DON n’est revendiqué.
+**50 tests passent : 37 nouveaux et 13 tests d'admission existants, zéro échec.**
+La vérification TypeScript passe. Les simulations CRE/WASM réelles, embarquée et
+HTTP, produisent le même rapport que le JSON local. HTTP reçoit un paquet figé
+sur un commit GitHub, avec arrêt sur défaut et sans repli vers un succès embarqué.
 
-## Terminé et vérifié localement
+L'interface anglaise du rapport a été vérifiée sur ordinateur et mobile pour les
+12 cas, sans erreur de page ni débordement horizontal. Elle affiche un résultat
+enregistré, sans nouvelle analyse à chaque clic. Deux fiches de lecture externes
+vierges sont préparées; **aucune lecture externe n'est achevée**. Une visite
+vidéo silencieuse de 58 secondes présente les captures du rapport calculé.
 
-- **Gouverneur porté et exécuté.** 15 codes de défaut, verdicts `AUTORISE` /
-  `REFORMULER` / `BLOQUE`. La sortie dépend de l'entrée : une valeur altérée
-  donne `INCOMPATIBILITE_ETAT_VIVANT`, une source inventée `SOURCE_INCONNUE`, un
-  extrait fabriqué `PREUVE_NON_CONCORDANTE`.
-- **Parité P8 v0.7 : 93/93, 0 échec**, sous `cre workflow simulate`.
-- **Workflow CRE v0.1 exécutable**, avec point d'entrée, configuration et
-  concordance **2/2** avec l'oracle scellé.
-- **Chaîne d'empreintes reproductible** : rapport sérialisé canonique, SHA-256
-  identique octet pour octet.
-- **Contrat `LegalEvidenceAnchor`** : 7 tests sur 7 passés sous Hardhat avant
-  déploiement. Solidity 0.8.28, EVM Cancun, optimiseur activé, 200 runs.
-- **Le digest ancré est égal au SHA-256 de l'instantané scellé**, et à la valeur
-  attendue par `ADMISSION_FIXTURE_MANIFEST_V01.json`, préenregistré **avant** le
-  déploiement. Vérifié hors ligne.
-- **Hygiène du dépôt** : `.env` et `secrets.yaml` exclus, aucune clé ni URL RPC
-  privée dans un fichier suivi.
+Voir [le guide de reproduction](CONTRACT_DEMO_V02.md) et
+[les preuves techniques](VERIFICATION_CONTRACT_V02.json).
 
-## Démontré publiquement
+## Historique v0.1 préservé
 
-- **Contrat déployé sur Ethereum Sepolia** :
-  `0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3`
-- **Premier ancrage confirmé**, transaction
-  `0x2a7636259f1e766ddf37fefc922159e544b44f918d05a145a2884a991574c34d`,
-  bloc `11357728`, 2026-07-26T23:07:12Z, statut `success`.
-- Reçus dans `anchors/`, en JSON et en Markdown.
-- Vérification de source : Sourcify `successful` **selon Remix** — rapporté par
-  l'outil, non revérifié indépendamment.
+Le correctif d'admission du 23 octobre vérifie les octets de l'instantané,
+l'attestation de racine Ed25519 et les 44 événements avant gouvernance.
+L'extension ne modifie ni le gouverneur gelé, ni ses vecteurs, ni l'admission,
+ni les modules portée/rapport, le contrat Solidity, ses tests ou la licence.
+La simulation historique a été rejouée : 2/2, mêmes empreintes de rapports et
+même WASM. Le résultat P8 93/93 reste historique, non rejoué ici. Les 7 tests
+Hardhat du contrat inchangé avaient passé dans la revue précédente du 23 octobre.
 
-## Non démontré
+L'ancrage Sepolia historique porte l'instantané v0.1, pas le nouveau rapport.
+Aucune transaction nouvelle, aucun déploiement DON et aucun consensus BFT.
 
-- **Aucun consensus BFT.** Toutes les exécutions sont mononœud. Rien n'a été
-  répliqué, rien n'a été voté, aucun DON n'a été utilisé.
-- **Aucune validité juridique.** Le système ne dit pas ce qui est admissible, ni
-  ce qui a force probante.
-- **L'ancrage ne prouve pas la vérité du contenu**, ni la provenance réelle du
-  document, ni l'identité humaine derrière l'adresse émettrice.
-- **Aucune écriture ni lecture de la chaîne depuis le workflow CRE.** Le
-  workflow produit l'empreinte ; l'ancrage a été fait séparément. La jonction
-  automatique n'existe pas.
-- **Aucun corpus juridique réel gouverné de bout en bout.** Le scellé CanLII
-  Dunsmuir existe dans le dépôt parent mais n'est pas consommé par le workflow.
-- **Aucune validation en conditions réelles.** L'article publié le dit lui-même :
-  la validation en déploiement reste une question ouverte.
-- **Aucune interface.** La démonstration passe par la ligne de commande.
-- **Tous droits réservés.** La décision de licence est prise : aucun droit de
-  réutilisation n'est accordé. Le dépôt est publiquement lisible et n'est **pas**
-  open source. Rien ici ne peut être copié, modifié ou réutilisé sans
-  autorisation écrite, et aucune licence de brevet n'est accordée. Voir
-  `LICENSE`.
+## Vidéos, dépôt et limites
 
-## Prochaine étape minimale pour la soumission
+La [vidéo v0.1 historique](https://drive.google.com/file/d/1ekUsWUq6MSm7QSFwHmPCXrOdXgb_QH8F/view?usp=sharing) est identifiée : même nom et même taille
+de 27 203 766 octets que le fichier local examiné; sa page Drive s'ouvre sans
+connexion. Elle ne présente pas les ajouts 0.2. La nouvelle vidéo est distincte.
 
-1. Retirer ou expliquer `my-calculator-workflow/` — **fait**, retiré au commit
-   `c31523c`.
-2. Choisir une licence — **fait**. Tous droits réservés ; voir `LICENSE`.
-3. Pousser le dépôt sur GitHub — **fait** :
-   <https://github.com/siucsystem-star/legal-evidence-consensus>
-4. Enregistrer une démonstration courte : la simulation CRE sur les deux cas,
-   puis la transaction d'ancrage sur Etherscan. **Vidéo locale prête ; lien public à fournir.**
-5. Soumettre sur DoraHacks, organisateur : 31 octobre 2026, heure à confirmer sur la plateforme. **Reste à faire.**
+Le dépôt DoraHacks reste à effectuer; conditions particulières de la prime et
+heure limite de la plateforme restent à confirmer.
 
-Le correctif d’admission est inclus dans cette révision. La publication de la
-vidéo et la soumission restent des étapes distinctes.
-
-## `my-calculator-workflow/` — retiré
-
-Le gabarit CRE « hello world » d'origine a été retiré au commit `c31523c`. Avant
-retrait, il avait été vérifié qu'il n'existait **aucune référence** dans
-`project.yaml`, dans le workflow LEC, dans `hardhat.config.ts`, dans `scripts/`
-ni dans `test/`. La seule mention restante figure dans
-`AUDIT_CRE_BASELINE_2026-07-25.md`, qui le décrit comme le gabarit de départ —
-un document daté, qui reste exact pour sa date.
+Ce contrôleur limité n'est pas une validation officielle Reality Floor. Il ne
+comprend pas des contrats arbitraires et n'extrait pas automatiquement leurs
+faits. Lecture indépendante, corroboration et validité juridique restent
+NOT_ASSESSED; couverture intégrale NOT_MEASURED. Sources synthétiques, pas de
+données ou code de Matt redistribués. Licence existante inchangée : tous droits
+réservés, avec ses permissions de vérification; pas de licence open source OSI.

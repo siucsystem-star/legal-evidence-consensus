@@ -1,5 +1,11 @@
 [Version française](README_FR.md)
 
+**October 23 extension:** a separate [English contract demonstration 0.2](CONTRACT_DEMO_V02.md)
+adds a fictional agreement/amendment, condition-loss checks, two-clock examples,
+an English [report viewer](docs/contract-demo.html), and a signed external-package
+HTTP path. These are new bounded demonstration rules, not an update of the
+frozen v0.1 governor. The original project description follows below.
+
 # Legal Evidence Consensus — Reality Floor
 
 Telling *"someone claimed it"* apart from *"evidence supports it"*, and anchoring
