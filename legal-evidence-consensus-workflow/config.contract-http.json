@@ -1,0 +1,5 @@
+{
+  "schedule": "*/30 * * * * *",
+  "source": "http",
+  "sourceUrl": "https://raw.githubusercontent.com/siucsystem-star/legal-evidence-consensus/0000000000000000000000000000000000000000/examples/contract-demo/signed-package.json"
+}
