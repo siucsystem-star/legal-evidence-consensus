@@ -26,6 +26,7 @@ import {
 } from "./rapport";
 import { V } from "./vecteurs_p8_v07";
 import { ADMISSION_FIXTURE_V01 } from "./admission_fixture_v01";
+import { admettreInstantane } from "./admission";
 
 export type Config = { schedule: string };
 
@@ -73,9 +74,10 @@ export type ResultatSimulation = {
 export function executerCas(): ResultatSimulation {
   const A = V as any;
   const snap = A.INSTANTANE_E1_V2.instantane_utf8 as string;
+  const admission = admettreInstantane(snap, A.INSTANTANE_E1_V2.cle_publique_pem);
   const vue = new Vue(snap);
-  const racine = A.INSTANTANE_E1_V2.declared_root as string;
-  const empreintePlancher = sha(snap);
+  const racine = admission.root;
+  const empreintePlancher = admission.snapshotSha256;
   const O = A.VECTEURS_P8_V07;
   const T = O.cas[0].affirmation.t_raisonnement as number;
 
@@ -165,9 +167,9 @@ export function executerCas(): ResultatSimulation {
       admission_fixture_concorde:
         empreintePlancher === ADMISSION_FIXTURE_V01.snapshot.sha256,
       admission_signature_couvre_attestation:
-        ADMISSION_FIXTURE_V01.signedAttestation.verifies,
+        admission.signatureVerified,
       admission_signature_couvre_instantane_complet:
-        ADMISSION_FIXTURE_V01.signedAttestation.verifiesAgainstFullSnapshot,
+        admission.fullSnapshotSignatureVerified,
     },
     cas: resultats,
     gouverneur_appele: appels,

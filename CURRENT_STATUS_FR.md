@@ -2,14 +2,31 @@
 
 # État actuel
 
-**Date :** 2026-07-27
-**S'applique à :** la tête de `main` à cette date. Les empreintes de commit sont
+**Date :** 2026-10-23
+**S'applique à :** la révision comprenant le correctif d’admission du 23 octobre. Les empreintes de commit sont
 visibles dans l'historique Git ; ce document ne redit pas la sienne.
 
 Les audits et gels de périmètre antérieurs — `AUDIT_CRE_BASELINE_2026-07-25.md`,
 `SCOPE_FREEZE_LEGAL_EVIDENCE_CONSENSUS_V01_2026-07-25.md` et les autres documents
 datés — décrivent l'état du projet **à leur date**. Ils n'ont pas été réécrits.
 Le présent document est l'état actuel ; en cas d'écart, c'est lui qui fait foi.
+
+## Revue technique du 23 octobre 2026
+
+- La version publique initiale exécutait le gouverneur malgré une empreinte
+  incorrecte et recopiait un booléen de fixture pour la vérification Ed25519.
+- Le nouveau module `admission.ts` vérifie les octets, la clé attendue,
+  l’attestation Ed25519 et la chaîne complète de 44 événements avant la vue.
+- **13 tests d’admission réussis**, contrôle TypeScript réussi et simulation
+  CRE/QuickJS-WASM réussie. Les deux rapports conservent leurs SHA-256 initiaux.
+- Le contrat inchangé a été recompilé : **7 tests réussis** sous Hardhat.
+- Le résultat historique P8 93/93 ci-dessous n’a pas été rejoué pendant cette
+  revue ; les modules P5–P8 et les vecteurs scellés sont inchangés.
+- La vidéo locale de 2 min 40 existe. Sa publication et le dépôt DoraHacks
+  restent à finaliser. L’admissibilité à la prime CRE n’est pas confirmée par
+  le seul texte descriptif de la prime.
+- L’ancrage reste manuel, sur l’empreinte de l’instantané, sans écriture CRE.
+  Aucun nouveau déploiement, transaction ni consensus DON n’est revendiqué.
 
 ## Terminé et vérifié localement
 
@@ -71,11 +88,11 @@ Le présent document est l'état actuel ; en cas d'écart, c'est lui qui fait fo
 3. Pousser le dépôt sur GitHub — **fait** :
    <https://github.com/siucsystem-star/legal-evidence-consensus>
 4. Enregistrer une démonstration courte : la simulation CRE sur les deux cas,
-   puis la transaction d'ancrage sur Etherscan. **Reste à faire.**
-5. Soumettre sur DoraHacks, date limite 2026-11-01. **Reste à faire.**
+   puis la transaction d'ancrage sur Etherscan. **Vidéo locale prête ; lien public à fournir.**
+5. Soumettre sur DoraHacks, organisateur : 31 octobre 2026, heure à confirmer sur la plateforme. **Reste à faire.**
 
-Rien dans cette liste n'exige de nouveau développement. Ce qui manque est de la
-publication, pas de la recherche.
+Le correctif d’admission est inclus dans cette révision. La publication de la
+vidéo et la soumission restent des étapes distinctes.
 
 ## `my-calculator-workflow/` — retiré
 

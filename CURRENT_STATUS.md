@@ -2,8 +2,8 @@
 
 # Current status
 
-**Date:** 2026-07-27
-**Applies to:** the head of `main` on that date. Commit hashes are visible in the
+**Date:** 2026-10-23
+**Applies to:** the revision including the October 23 admission correction. Commit hashes are visible in the
 Git history; this document does not restate its own.
 
 Earlier audits and scope freezes — `AUDIT_CRE_BASELINE_2026-07-25.md`,
@@ -11,6 +11,24 @@ Earlier audits and scope freezes — `AUDIT_CRE_BASELINE_2026-07-25.md`,
 documents — describe the state of the project **at their date**. They have not
 been rewritten. This document is the current state; where the two differ, this
 one governs.
+
+## Technical review on October 23, 2026
+
+- The original public entry point still governed a mismatched snapshot and
+  copied a fixture boolean instead of cryptographically verifying Ed25519.
+- `admission.ts` now checks the exact bytes, pinned public key, detached
+  Ed25519 root attestation and all 44 event hashes before constructing a view.
+- **13 admission checks passed**, TypeScript checks passed, and the actual
+  CRE/QuickJS-WASM simulation passed. Both valid report hashes are unchanged.
+- The unchanged Solidity contract was recompiled: **7 Hardhat tests passed**.
+- The historical 93/93 P8 result below was not rerun in this review. The
+  P5–P8 modules and sealed vectors are unchanged.
+- A local 2m40s demo video exists; public hosting and the DoraHacks submission
+  remain pending. The provided bounty description alone does not establish
+  eligibility for the CRE prize.
+- The existing Sepolia demonstration manually anchors the **snapshot** digest;
+  there is still no chain write from CRE. No new deployment, transaction or
+  DON consensus is claimed.
 
 ## Done and verified locally
 
@@ -71,11 +89,11 @@ one governs.
 3. Push the repository to GitHub — **done**:
    <https://github.com/siucsystem-star/legal-evidence-consensus>
 4. Record a short demonstration: the CRE simulation on both cases, then the
-   anchoring transaction on Etherscan. **Remaining.**
-5. Submit on DoraHacks, deadline 2026-11-01. **Remaining.**
+   anchoring transaction on Etherscan. **Local video ready; public URL pending.**
+5. Submit on DoraHacks, organizer announcement: October 31, 2026; exact platform time to confirm. **Remaining.**
 
-Nothing on this list requires new development. What is missing is publication,
-not research.
+The admission correction is included in this revision. Video publication and
+the submission remain distinct steps.
 
 ## `my-calculator-workflow/` — removed
 

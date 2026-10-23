@@ -4,7 +4,8 @@
   "main": "dist/main.js",
   "private": true,
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:admission": "bun test ../review-tests/admission.test.ts"
   },
   "license": "UNLICENSED",
   "dependencies": {
