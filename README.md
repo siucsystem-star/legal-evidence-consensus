@@ -1,12 +1,60 @@
 [Version française](README_FR.md)
 
-**October 23 extension:** a separate [English contract demonstration 0.2](CONTRACT_DEMO_V02.md)
-adds a fictional agreement/amendment, condition-loss checks, two-clock examples,
-an English [report viewer](docs/contract-demo.html), and a signed external-package
-HTTP path. These are new bounded demonstration rules, not an update of the
-frozen v0.1 governor. The original project description follows below.
-
 # Legal Evidence Consensus — Reality Floor
+
+**A correct quote can still support the wrong conclusion.** A fee that was true
+in March, a delay promised only for severity-one incidents, an amendment nobody
+knew about yet: the source is intact, the signature verifies, and the statement
+built on it is still wrong. This prototype checks structured legal claims
+against signed, time-versioned evidence, says exactly *why* a claim does or does
+not match, and says just as plainly what it did **not** check.
+
+## For judges — start here
+
+| What | Where |
+|---|---|
+| 12-case contract walkthrough (fictional agreement + amendment) | [`docs/contract-demo.html`](https://siucsystem-star.github.io/legal-evidence-consensus/contract-demo.html) · [captioned video](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) |
+| How the checks work, reproduction, limits | [`CONTRACT_DEMO_V02.md`](CONTRACT_DEMO_V02.md) |
+| One CRE workflow: HTTP evidence + Sepolia read-back | [below](#one-cre-workflow-http-evidence--sepolia-read-back-03) |
+| What is demonstrated and what is not | [`CURRENT_STATUS.md`](CURRENT_STATUS.md) |
+| Earlier v0.1 video (CRE simulation, Etherscan) | [Google Drive](https://drive.google.com/file/d/1ekUsWUq6MSm7QSFwHmPCXrOdXgb_QH8F/view?usp=sharing) |
+
+**The two clocks.** Cases 09 and 10 ask about the *same day* (2 April 2026) and
+both match — with different fees. The amendment took effect on 1 April but was
+only known on 5 April. Asked with what was known on 2 April, the supported fee
+is CAD 8,400; asked with what was known by 1 May, it is CAD 9,100. Both answers
+are correct for their knowledge horizon, and the checker never mixes them.
+
+## One CRE workflow: HTTP evidence + Sepolia read-back (0.3)
+
+`anchor-check-settings` runs a single Chainlink CRE workflow that touches two
+external systems:
+
+1. **HTTP** — fetches the signed 0.2 contract package from an immutable Git
+   commit, verifies its exact hash and Ed25519 signature, and reviews the 12
+   structured claims (no fallback to embedded data on any failure).
+2. **EVM (Ethereum Sepolia)** — admits the sealed v0.1 evidence snapshot (byte
+   hash, signed root attestation, 44 event hashes), then reads back its existing
+   anchor with a `getAnchor` view call at the last finalized block, and requires
+   the on-chain submitter, digest, block and timestamp to match exactly.
+
+```bash
+cd legal-evidence-consensus-workflow
+bun install --frozen-lockfile --ignore-scripts
+bun run test:anchor
+cd ..
+cre workflow simulate legal-evidence-consensus-workflow --target anchor-check-settings --non-interactive --trigger-index 0
+```
+
+Read-only: no transaction, no wallet, no secret. The Sepolia record concerns the
+**v0.1 snapshot digest**; the 0.2 report digest is not anchored. Single-node
+simulation; no DON consensus is claimed.
+
+---
+
+*The original v0.1 project description follows.*
+
+## v0.1 — original description
 
 Telling *"someone claimed it"* apart from *"evidence supports it"*, and anchoring
 that distinction so that no one — ourselves included — can rewrite it afterwards.

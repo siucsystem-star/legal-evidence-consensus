@@ -1,12 +1,63 @@
 [English version](README.md)
 
-**Extension du 23 octobre :** une [démonstration contractuelle 0.2 en anglais](CONTRACT_DEMO_V02.md)
-ajoute un contrat et un avenant fictifs, des contrôles de conditions, les deux
-horloges, une [interface de lecture du rapport](docs/contract-demo.html) et un
-chemin HTTP pour un paquet signé. Ce nouveau contrôleur limité reste séparé du
-gouverneur historique v0.1. La description initiale du projet suit ci-dessous.
-
 # Legal Evidence Consensus — Reality Floor
+
+**Une citation exacte peut encore appuyer une conclusion fausse.** Un tarif vrai
+en mars, un délai promis seulement pour les incidents de sévérité 1, un avenant
+que personne ne connaissait encore : la source est intacte, la signature vérifie,
+et l'affirmation construite dessus reste fausse. Ce prototype confronte des
+affirmations juridiques structurées à une preuve signée et versionnée dans le
+temps, dit exactement *pourquoi* une affirmation concorde ou non, et dit aussi
+clairement ce qu'il n'a **pas** vérifié.
+
+## Pour le jury — commencer ici
+
+| Quoi | Où |
+|---|---|
+| Visite des 12 cas (contrat et avenant fictifs, en anglais) | [`docs/contract-demo.html`](https://siucsystem-star.github.io/legal-evidence-consensus/contract-demo.html) · [vidéo légendée](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) |
+| Fonctionnement, reproduction, limites | [`CONTRACT_DEMO_V02.md`](CONTRACT_DEMO_V02.md) |
+| Un workflow CRE : preuve HTTP + relecture Sepolia | [plus bas](#un-workflow-cre--preuve-http--relecture-sepolia-03) |
+| Ce qui est démontré, et ce qui ne l'est pas | [`CURRENT_STATUS_FR.md`](CURRENT_STATUS_FR.md) |
+| Vidéo v0.1 (simulation CRE, Etherscan) | [Google Drive](https://drive.google.com/file/d/1ekUsWUq6MSm7QSFwHmPCXrOdXgb_QH8F/view?usp=sharing) |
+
+**Les deux horloges.** Les cas 09 et 10 portent sur le *même jour* (2 avril 2026)
+et concordent tous deux — avec des tarifs différents. L'avenant prend effet le
+1er avril mais n'est connu que le 5 avril. Avec ce qu'on savait le 2 avril, le
+tarif appuyé est de 8 400 $ CA; avec ce qu'on savait au 1er mai, il est de
+9 100 $ CA. Les deux réponses sont justes pour leur horizon de connaissance, et
+le contrôleur ne les confond jamais.
+
+## Un workflow CRE : preuve HTTP + relecture Sepolia (0.3)
+
+`anchor-check-settings` exécute un seul workflow Chainlink CRE qui touche deux
+systèmes externes :
+
+1. **HTTP** — récupère le paquet contractuel 0.2 signé depuis un commit Git
+   immuable, vérifie son empreinte exacte et sa signature Ed25519, puis examine
+   les 12 affirmations structurées (aucun repli vers des données embarquées).
+2. **EVM (Ethereum Sepolia)** — admet l'instantané scellé v0.1 (empreinte des
+   octets, attestation de racine signée, 44 événements), puis relit son ancrage
+   existant par un appel `getAnchor` en lecture seule au dernier bloc finalisé,
+   et exige que l'émetteur, l'empreinte, le bloc et l'horodatage concordent
+   exactement.
+
+```bash
+cd legal-evidence-consensus-workflow
+bun install --frozen-lockfile --ignore-scripts
+bun run test:anchor
+cd ..
+cre workflow simulate legal-evidence-consensus-workflow --target anchor-check-settings --non-interactive --trigger-index 0
+```
+
+Lecture seule : aucune transaction, aucun portefeuille, aucun secret. L'ancrage
+Sepolia porte **l'empreinte de l'instantané v0.1**; l'empreinte du rapport 0.2
+n'est pas ancrée. Simulation mononœud; aucun consensus DON revendiqué.
+
+---
+
+*La description initiale du projet v0.1 suit.*
+
+## v0.1 — description initiale
 
 Distinguer *« quelqu'un l'a affirmé »* de *« une preuve l'appuie »*, et ancrer la
 distinction de façon que personne — nous compris — ne puisse la réécrire après coup.

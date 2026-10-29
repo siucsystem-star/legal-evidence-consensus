@@ -38,3 +38,13 @@ contract-http-settings:
     workflow-path: "./contract-main.ts"
     config-path: "./config.contract-http.json"
     secrets-path: ""
+
+# 0.3: one workflow, two external systems. HTTP fetch of the signed 0.2 package
+# plus a read-only Sepolia view call on the existing v0.1 anchor. No write.
+anchor-check-settings:
+  user-workflow:
+    workflow-name: "legal-evidence-anchor-check"
+  workflow-artifacts:
+    workflow-path: "./anchor-main.ts"
+    config-path: "./config.anchor-check.json"
+    secrets-path: ""

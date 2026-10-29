@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-29",
+  "base_commit": "7954113",
+  "review_type": "Developer verification; not independent validation or legal review",
+  "scope": "0.3 anchored workflow: HTTP fetch of the signed 0.2 package + read-only Sepolia getAnchor view call on the existing v0.1 anchor",
+  "new_files": {
+    "legal-evidence-consensus-workflow/anchor-check.ts": "af81037e35089acedfe50b47ca4cb89c9b08a9ea95502c767cb01b03000ba6d5",
+    "legal-evidence-consensus-workflow/anchor-runtime.ts": "d93a6ff29318d01315efd1d66bd2e239e74b07eae7e4800db11dd20507b53885",
+    "legal-evidence-consensus-workflow/anchor-main.ts": "2b95ccc5aa3ba0b3bb455452757daf2a6487e78f2df2794bdc676608948c2b9b",
+    "review-tests/anchor.test.ts": "4ee4c1c4ccad74fcd9b1d061a1626c55f302a9a4552a5d8f251215aced0be4a4"
+  },
+  "tests": {
+    "anchor": 21,
+    "existing_admission": 13,
+    "existing_contract": 37,
+    "total_passed": 71,
+    "failed": 0,
+    "typecheck": "passed",
+    "runtime": "Bun 1.4.4, Linux"
+  },
+  "wasm_compile": {
+    "tool": "@chainlink/cre-sdk 1.16.0 cre-compile (Javy v8.1.0), Linux",
+    "result": "passed",
+    "note": "Local compile only; the CRE CLI on Windows compiles its own artifact, whose hash may differ."
+  },
+  "live_chain_read": {
+    "method": "eth_call at block tag finalized via https://ethereum-sepolia-rpc.publicnode.com, outside CRE",
+    "date": "2026-10-29",
+    "contract": "0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3",
+    "function": "getAnchor(address,bytes32)",
+    "selector": "0xfdd436c0",
+    "result": "ANCHOR_MATCHES_SNAPSHOT",
+    "blockNumber": 11357728,
+    "blockTimestamp": 1785107232,
+    "digest": "9f694a38f1870501557f23c2f29e8d5033e46635376a426662407d5348a8ddcf"
+  },
+  "cre_simulation": {
+    "target": "anchor-check-settings",
+    "cli": "1.26.0",
+    "result": "PENDING — to be run by the project owner; not claimed until recorded here"
+  },
+  "frozen_files_modified": 0,
+  "new_blockchain_transactions": 0,
+  "don_deployments": 0,
+  "external_readings_completed": 0,
+  "limits": [
+    "Read-only check of an anchor made manually on 2026-07-26",
+    "The 0.2 report digest is not anchored",
+    "Single-node simulation, not BFT consensus",
+    "Anchoring is an upper time bound and attributes a submission to an address; it does not establish truth or legal validity",
+    "Bounty eligibility is decided by the sponsor"
+  ],
+  "video": {
+    "name": "docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4",
+    "sha256": "4fd37dc78e06206ec3f30d231a36d8f5909839085a319d31ed51a128b454866c",
+    "bytes": 1175692,
+    "duration_s": 71,
+    "kind": "Silent; title card, the unchanged 0.2 report walkthrough (scaled to 85%, nothing masked) with one caption per case, closing card",
+    "derived_from_sha256": "bed7cd061021ed08e9e7d254ffe8d0a56a8c9157d861118773d68d8c1fd0296c",
+    "full_decode": "passed"
+  }
+}
