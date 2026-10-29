@@ -51,7 +51,11 @@ L'interface anglaise du rapport a été vérifiée sur ordinateur et mobile pour
 12 cas, sans erreur de page ni débordement horizontal. Elle affiche un résultat
 enregistré, sans nouvelle analyse à chaque clic. Deux fiches de lecture externes
 vierges sont préparées; **aucune lecture externe n'est achevée**. Une visite
-vidéo silencieuse de 58 secondes présente les captures du rapport calculé.
+vidéo silencieuse de 58 secondes présente les captures du rapport calculé. Le
+29 octobre, une version légendée de 71 secondes (écran titre, une légende par
+cas, écran final; images d'origine non masquées) a été ajoutée dans
+`docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4`. Elle ne montre pas
+l'exécution CRE 0.3.
 
 Voir [le guide de reproduction](CONTRACT_DEMO_V02.md) et
 [les preuves techniques](VERIFICATION_CONTRACT_V02.json).
@@ -73,13 +77,14 @@ Aucune transaction nouvelle, aucun déploiement DON et aucun consensus BFT.
 
 La [vidéo v0.1 historique](https://drive.google.com/file/d/1ekUsWUq6MSm7QSFwHmPCXrOdXgb_QH8F/view?usp=sharing) est identifiée : même nom et même taille
 de 27 203 766 octets que le fichier local examiné; sa page Drive s'ouvre sans
-connexion. Elle ne présente pas les ajouts 0.2. La nouvelle vidéo est distincte.
+connexion. Elle ne présente pas les ajouts 0.2. La vidéo légendée est dans `docs/`.
 
 Échéance DoraHacks : **31 octobre 2026 à 21 h 01 (UTC−4)**, soit le 1er novembre
 à 01 h 01 UTC, selon la page de l'événement consultée le 29 octobre. L'événement
 affiche une prime Chainlink « Best workflow with CRE », qui demande un workflow
 CRE reliant au moins une blockchain à une API ou source externe, avec une
-simulation réussie en ligne de commande; la cible 0.3 répond à cette exigence.
+simulation réussie en ligne de commande; la cible 0.3 est conçue
+pour cette exigence.
 L'admissibilité relève du commanditaire et n'est pas revendiquée ici.
 
 Ce contrôleur limité n'est pas une validation officielle Reality Floor. Il ne

@@ -94,7 +94,7 @@ describe("Sepolia anchor read-back: the real CRE handler under the SDK test runt
     expect(calls.length).toBe(1);
     expect(bytesToHex(calls[0].call.to)).toBe(ANCHOR_V01.contract.slice(2).toLowerCase());
     expect(bytesToHex(calls[0].call.data)).toBe(encodeGetAnchor(ANCHOR_V01.submitter, ANCHOR_V01.digest).slice(2));
-    expect(calls[0].blockNumber).toBeDefined();
+    expect(Array.from(calls[0].blockNumber.absVal)).toEqual([3]); expect(BigInt(calls[0].blockNumber.sign)).toBe(-1n);
     expect(out.anchor.status).toBe("ANCHOR_MATCHES_SNAPSHOT");
     expect(out.contractReview.reportSha256).toBe(reviewContract(CONTRACT_ENVELOPE_UTF8, CONTRACT_CLAIMS).reportSha256);
     expect(Object.keys(out.contractReview.outcomes).length).toBe(12);
@@ -113,7 +113,7 @@ describe("Sepolia anchor read-back: the real CRE handler under the SDK test runt
     HttpActionsMock.testInstance().sendRequest = () => httpOk() as any;
     EvmMock.testInstance(ANCHOR_V01.chainSelector).callContract = () => { throw new Error("execution reverted: AnchorNotFound"); };
     const runtime: any = newTestRuntime(); runtime.config = config;
-    expect(() => runAnchoredWorkflow(runtime)).toThrow();
+    expect(() => runAnchoredWorkflow(runtime)).toThrow("AnchorNotFound");
   });
 
   creTest("an altered HTTP package fails before the chain is read", () => {
@@ -121,7 +121,7 @@ describe("Sepolia anchor read-back: the real CRE handler under the SDK test runt
     HttpActionsMock.testInstance().sendRequest = () => ({ statusCode: 200, body: utf8ToBytes(CONTRACT_ENVELOPE_UTF8.replace("8,400", "8,401")) }) as any;
     EvmMock.testInstance(ANCHOR_V01.chainSelector).callContract = () => { evmCalls++; return { data: reply() } as any; };
     const runtime: any = newTestRuntime(); runtime.config = config;
-    expect(() => runAnchoredWorkflow(runtime)).toThrow();
+    expect(() => runAnchoredWorkflow(runtime)).toThrow("HASH");
     expect(evmCalls).toBe(0);
   });
 

@@ -51,7 +51,11 @@ audits retain their meaning at their own dates; they have not been rewritten.
 - A shuffled answer-free packet and two blank reader sheets are prepared.
   **External readings completed: 0** (as of October 29). Expectations are developer-authored.
 - A silent 58-second walkthrough is generated from the report viewer's actual
-  screenshots. It is a report walkthrough, not a live terminal recording.
+  screenshots. It is a report walkthrough, not a live terminal recording. On
+  October 29 a captioned 71-second version (title card, one caption per case,
+  closing card; original frames unmasked) was added as
+  `docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4`. It does not show the
+  0.3 CRE run.
 
 Reproduction and scope: [CONTRACT_DEMO_V02.md](CONTRACT_DEMO_V02.md).
 Machine-readable evidence: [VERIFICATION_CONTRACT_V02.json](VERIFICATION_CONTRACT_V02.json).
@@ -78,8 +82,8 @@ transaction, DON deployment or multi-node BFT consensus is claimed.
 
 The [historical v0.1 video](https://drive.google.com/file/d/1ekUsWUq6MSm7QSFwHmPCXrOdXgb_QH8F/view?usp=sharing) is now identified on Drive; filename and
 27,203,766-byte size match the reviewed local file, and its viewer was reached
-without signing in. It does not show the 0.2 extension. The new walkthrough is
-provided separately with the research preview assets.
+without signing in. It does not show the 0.2 extension. The captioned walkthrough
+is in `docs/`.
 
 The DoraHacks submission deadline is **2026-10-31 21:01 (UTC−4)**, i.e.
 2026-11-01 01:01 UTC, as shown on the event page on October 29. The event lists

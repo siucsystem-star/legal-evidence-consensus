@@ -14,7 +14,7 @@ clairement ce qu'il n'a **pas** vérifié.
 
 | Quoi | Où |
 |---|---|
-| Visite des 12 cas (contrat et avenant fictifs, en anglais) | [`docs/contract-demo.html`](https://siucsystem-star.github.io/legal-evidence-consensus/contract-demo.html) · [vidéo légendée](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) |
+| Visite des 12 cas (contrat et avenant fictifs, en anglais) | [`docs/contract-demo.html`](docs/contract-demo.html) · [vidéo légendée, 71 s](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) (visite du rapport; ne montre pas l'exécution CRE) |
 | Fonctionnement, reproduction, limites | [`CONTRACT_DEMO_V02.md`](CONTRACT_DEMO_V02.md) |
 | Un workflow CRE : preuve HTTP + relecture Sepolia | [plus bas](#un-workflow-cre--preuve-http--relecture-sepolia-03) |
 | Ce qui est démontré, et ce qui ne l'est pas | [`CURRENT_STATUS_FR.md`](CURRENT_STATUS_FR.md) |
@@ -29,7 +29,7 @@ le contrôleur ne les confond jamais.
 
 ## Un workflow CRE : preuve HTTP + relecture Sepolia (0.3)
 
-`anchor-check-settings` exécute un seul workflow Chainlink CRE qui touche deux
+`anchor-check-settings` est un seul workflow Chainlink CRE qui touche deux
 systèmes externes :
 
 1. **HTTP** — récupère le paquet contractuel 0.2 signé depuis un commit Git
@@ -51,7 +51,8 @@ cre workflow simulate legal-evidence-consensus-workflow --target anchor-check-se
 
 Lecture seule : aucune transaction, aucun portefeuille, aucun secret. L'ancrage
 Sepolia porte **l'empreinte de l'instantané v0.1**; l'empreinte du rapport 0.2
-n'est pas ancrée. Simulation mononœud; aucun consensus DON revendiqué.
+n'est pas ancrée. Simulation mononœud; aucun consensus DON revendiqué. Résultat de la simulation
+en ligne de commande : [`VERIFICATION_ANCHOR_V03.json`](VERIFICATION_ANCHOR_V03.json).
 
 ---
 
@@ -121,7 +122,7 @@ Concordance avec l'oracle scellé : **2/2**.
 
 ```bash
 cd legal-evidence-consensus-workflow
-bun install --frozen-lockfile
+bun install --frozen-lockfile --ignore-scripts
 cd ..
 cre workflow simulate legal-evidence-consensus-workflow --target staging-settings
 ```

@@ -13,7 +13,7 @@ not match, and says just as plainly what it did **not** check.
 
 | What | Where |
 |---|---|
-| 12-case contract walkthrough (fictional agreement + amendment) | [`docs/contract-demo.html`](https://siucsystem-star.github.io/legal-evidence-consensus/contract-demo.html) · [captioned video](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) |
+| 12-case contract walkthrough (fictional agreement + amendment) | [`docs/contract-demo.html`](docs/contract-demo.html) · [captioned video, 71 s](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) (report walkthrough; it does not show the CRE run) |
 | How the checks work, reproduction, limits | [`CONTRACT_DEMO_V02.md`](CONTRACT_DEMO_V02.md) |
 | One CRE workflow: HTTP evidence + Sepolia read-back | [below](#one-cre-workflow-http-evidence--sepolia-read-back-03) |
 | What is demonstrated and what is not | [`CURRENT_STATUS.md`](CURRENT_STATUS.md) |
@@ -27,7 +27,7 @@ are correct for their knowledge horizon, and the checker never mixes them.
 
 ## One CRE workflow: HTTP evidence + Sepolia read-back (0.3)
 
-`anchor-check-settings` runs a single Chainlink CRE workflow that touches two
+`anchor-check-settings` is a single Chainlink CRE workflow that touches two
 external systems:
 
 1. **HTTP** — fetches the signed 0.2 contract package from an immutable Git
@@ -48,7 +48,8 @@ cre workflow simulate legal-evidence-consensus-workflow --target anchor-check-se
 
 Read-only: no transaction, no wallet, no secret. The Sepolia record concerns the
 **v0.1 snapshot digest**; the 0.2 report digest is not anchored. Single-node
-simulation; no DON consensus is claimed.
+simulation; no DON consensus is claimed. CLI simulation result for this target:
+[`VERIFICATION_ANCHOR_V03.json`](VERIFICATION_ANCHOR_V03.json).
 
 ---
 
@@ -122,7 +123,7 @@ Agreement with the sealed oracle: **2/2**.
 
 ```bash
 cd legal-evidence-consensus-workflow
-bun install --frozen-lockfile
+bun install --frozen-lockfile --ignore-scripts
 cd ..
 cre workflow simulate legal-evidence-consensus-workflow --target staging-settings
 ```
