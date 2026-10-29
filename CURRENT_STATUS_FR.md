@@ -56,8 +56,12 @@ L'interface anglaise du rapport a été vérifiée sur ordinateur et mobile pour
 enregistré, sans nouvelle analyse à chaque clic. Deux fiches de lecture externes
 vierges sont préparées; **aucune lecture externe n'est achevée**. Une visite
 vidéo silencieuse de 58 secondes présente les captures du rapport calculé. Le
-29 octobre, une version légendée de 71 secondes (écran titre, une légende par
-cas, écran final; images d'origine non masquées) a été ajoutée dans
+29 octobre, l'interface a pris l'identité visuelle Coherix (mise en page et
+typographie seulement; contenu, données et script inchangés, et
+`docs/contract-report.json` identique octet pour octet), a été revérifiée sur
+ordinateur et mobile pour les 12 cas sans erreur ni débordement, et une visite
+légendée de 69 secondes, régénérée à partir d'elle (écran titre, une légende par
+cas, écran final), a été ajoutée dans
 `docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4`. Elle ne montre pas
 l'exécution CRE 0.3.
 

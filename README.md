@@ -13,7 +13,7 @@ not match, and says just as plainly what it did **not** check.
 
 | What | Where |
 |---|---|
-| 12-case contract walkthrough (fictional agreement + amendment) | [`docs/contract-demo.html`](docs/contract-demo.html) · [captioned video, 71 s](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) (report walkthrough; it does not show the CRE run) |
+| 12-case contract walkthrough (fictional agreement + amendment) | [live page](https://siucsystem-star.github.io/legal-evidence-consensus/contract-demo.html) ([source](docs/contract-demo.html)) · [captioned video, 69 s](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) (report walkthrough; it does not show the CRE run) |
 | How the checks work, reproduction, limits | [`CONTRACT_DEMO_V02.md`](CONTRACT_DEMO_V02.md) |
 | One CRE workflow: HTTP evidence + Sepolia read-back | [below](#one-cre-workflow-http-evidence--sepolia-read-back-03) |
 | What is demonstrated and what is not | [`CURRENT_STATUS.md`](CURRENT_STATUS.md) |

@@ -56,10 +56,13 @@ audits retain their meaning at their own dates; they have not been rewritten.
   **External readings completed: 0** (as of October 29). Expectations are developer-authored.
 - A silent 58-second walkthrough is generated from the report viewer's actual
   screenshots. It is a report walkthrough, not a live terminal recording. On
-  October 29 a captioned 71-second version (title card, one caption per case,
-  closing card; original frames unmasked) was added as
-  `docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4`. It does not show the
-  0.3 CRE run.
+  October 29 the report viewer was restyled to the Coherix visual identity
+  (layout and typography only; content, data and script unchanged, and
+  `docs/contract-report.json` byte-identical), rechecked on desktop and mobile
+  for all 12 cases with no page errors or horizontal overflow, and a captioned
+  69-second walkthrough regenerated from it (title card, one caption per case,
+  closing card) was added as `docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4`.
+  It does not show the 0.3 CRE run.
 
 Reproduction and scope: [CONTRACT_DEMO_V02.md](CONTRACT_DEMO_V02.md).
 Machine-readable evidence: [VERIFICATION_CONTRACT_V02.json](VERIFICATION_CONTRACT_V02.json).

@@ -14,7 +14,7 @@ clairement ce qu'il n'a **pas** vérifié.
 
 | Quoi | Où |
 |---|---|
-| Visite des 12 cas (contrat et avenant fictifs, en anglais) | [`docs/contract-demo.html`](docs/contract-demo.html) · [vidéo légendée, 71 s](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) (visite du rapport; ne montre pas l'exécution CRE) |
+| Visite des 12 cas (contrat et avenant fictifs, en anglais) | [page en ligne](https://siucsystem-star.github.io/legal-evidence-consensus/contract-demo.html) ([source](docs/contract-demo.html)) · [vidéo légendée, 69 s](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) (visite du rapport; ne montre pas l'exécution CRE) |
 | Fonctionnement, reproduction, limites | [`CONTRACT_DEMO_V02.md`](CONTRACT_DEMO_V02.md) |
 | Un workflow CRE : preuve HTTP + relecture Sepolia | [plus bas](#un-workflow-cre--preuve-http--relecture-sepolia-03) |
 | Ce qui est démontré, et ce qui ne l'est pas | [`CURRENT_STATUS_FR.md`](CURRENT_STATUS_FR.md) |

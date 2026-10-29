@@ -68,11 +68,21 @@
   ],
   "video": {
     "name": "docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4",
-    "sha256": "4fd37dc78e06206ec3f30d231a36d8f5909839085a319d31ed51a128b454866c",
-    "bytes": 1175692,
-    "duration_s": 71,
-    "kind": "Silent; title card, the unchanged 0.2 report walkthrough (scaled to 85%, nothing masked) with one caption per case, closing card",
-    "derived_from_sha256": "bed7cd061021ed08e9e7d254ffe8d0a56a8c9157d861118773d68d8c1fd0296c",
+    "sha256": "9758fd0b2e45df793d4c2a889756517d706651008442e1b6140fa58950c42a1c",
+    "bytes": 1227971,
+    "duration_s": 69,
+    "kind": "Silent; title card, seven screenshots of the restyled report viewer (cases 01, 02, 05, 06, 09, 10, 12) each with one caption, closing card. Report walkthrough, not a terminal recording; does not show the CRE run.",
     "full_decode": "passed"
+  },
+  "interface_restyle": {
+    "date": "2026-10-29",
+    "change": "Coherix visual identity (CSS and header markup in scripts/build-contract-demo.ts); content, element ids and script unchanged",
+    "contract_report_json_byte_identical": true,
+    "desktop": "1600x1000",
+    "mobile": "390x844",
+    "cases_clicked": 12,
+    "page_errors": 0,
+    "horizontal_overflow": false,
+    "fonts": "Barlow Condensed, IBM Plex Sans, IBM Plex Mono via Google Fonts"
   }
 }
