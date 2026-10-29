@@ -1,0 +1,110 @@
+{
+  "document": "PREREGISTRATION — LEC extraction study v1",
+  "created_utc": "2026-10-29",
+  "status": "FROZEN — to be anchored on Ethereum Sepolia before any run on the test split",
+  "protocol": "extraction-study/PROTOCOL.md",
+  "frozen_files": {
+    "extraction-study/extract.ts": "d0a9930f6283093e516e3b0f72126583df296495e40063aa838d71a61b46ffa1",
+    "extraction-study/evaluate.ts": "acf239995e11515cce0f243075449b083ce95d7d7fec140f0994087407948303",
+    "extraction-study/claims.ts": "80af79f94db63d799b4953d4d45e8c21c92fdc2622d592556fcc1edc140e18db",
+    "extraction-study/prepare-cuad.py": "19c1d5af931da145b8484d80af8241431673664dbdf433543177c376ca4dd90c",
+    "extraction-study/run-test.ts": "bb4aff8de6c0b972f00bc34da215673c3436669c5591cda10dbc5e71e5c358e5",
+    "extraction-study/PROTOCOL.md": "32910702f115e3e2ddcb96b5715c4b6421dfd1cf7fbfc4fe1b0843b8c2b9bc63",
+    "extraction-study/extract.test.ts": "394b074adbf9ad06694ffb2353af97a78182271aaa5b8a405b24a8e33d0f7a37"
+  },
+  "hash_convention": "SHA-256 of each file with LF line endings, as stored in Git",
+  "data": {
+    "source": "CUAD v1, The Atticus Project, CC BY 4.0 — https://github.com/TheAtticusProject/cuad",
+    "repository_commit": "67faa0e6023b04fcaae6cc09497ab00e5d63a2a2",
+    "data_zip_sha256": "f8161d18bea4e9c05e78fa6dda61c19c846fb8087ea969c172753bc2f45b999a",
+    "CUADv1_json_sha256": "ed0b77d85bdf4014d7495800e8e4a70565b48ee6f8a2e5dca9cf8655dbf10eae",
+    "test_json_sha256": "007b6a40b0c65247f881627375c3d2e9b6aeeb5dfa89957494feed0765a1a073",
+    "development_contracts": 408,
+    "test_contracts": 102,
+    "development_titles_sha256": "7256a7197a32f98cd81e71a74f907898d648e6dea206da5c1e7e04c498cad295",
+    "test_titles_sha256": "8a6b7e0614c1b790c2228a59f9c28724e90e16b4100ff36fcadc28cb774966e6",
+    "derived_train_json_sha256": "5b209e1484a2ed8291a0d8e36d3190b8b6944e5423e57ccb8fdbcaf9f051aa55",
+    "derived_test_json_sha256": "fffa8e8fd8c5a389a2ef7ca527a89f190382b7cd0e66c8313f603a0eecafeb84"
+  },
+  "test_set_exposure_before_freeze": "Aggregate count of test contracts with an expert answer, per category, printed once on 2026-10-29. No test text, span or extractor output viewed.",
+  "development_results_408_contracts": {
+    "Governing Law": {
+      "contracts": 408,
+      "gold_positive": 354,
+      "predicted": 330,
+      "true_positive": 321,
+      "precision": 0.9727,
+      "precision_ci95": [
+        0.949,
+        0.9856
+      ],
+      "recall": 0.9068,
+      "recall_ci95": [
+        0.872,
+        0.9329
+      ],
+      "f1": 0.9386,
+      "value_checked": 321,
+      "value_agrees_with_gold_text": 321,
+      "value_number_and_unit_in_gold_text": 321,
+      "prediction_chars_median": 186
+    },
+    "Renewal Term": {
+      "contracts": 408,
+      "gold_positive": 150,
+      "predicted": 107,
+      "true_positive": 95,
+      "precision": 0.8879,
+      "precision_ci95": [
+        0.8141,
+        0.9347
+      ],
+      "recall": 0.6333,
+      "recall_ci95": [
+        0.5538,
+        0.7062
+      ],
+      "f1": 0.7393,
+      "value_checked": 95,
+      "value_agrees_with_gold_text": 95,
+      "value_number_and_unit_in_gold_text": 95,
+      "prediction_chars_median": 273
+    },
+    "Notice Period To Terminate Renewal": {
+      "contracts": 408,
+      "gold_positive": 95,
+      "predicted": 82,
+      "true_positive": 59,
+      "precision": 0.7195,
+      "precision_ci95": [
+        0.6141,
+        0.8052
+      ],
+      "recall": 0.6211,
+      "recall_ci95": [
+        0.5206,
+        0.7121
+      ],
+      "f1": 0.6667,
+      "value_checked": 59,
+      "value_agrees_with_gold_text": 59,
+      "value_number_and_unit_in_gold_text": 59,
+      "prediction_chars_median": 329
+    }
+  },
+  "runtime": "Bun 1.4.4",
+  "single_run_command": "bun run extraction-study/run-test.ts <rebuilt test.json> extraction-study/RESULTS_TEST_V1.json",
+  "anchor_plan": {
+    "network": "Ethereum Sepolia (chainId 11155111)",
+    "contract": "0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3",
+    "function": "anchor(bytes32)",
+    "digest": "SHA-256 of this file, exactly as committed"
+  },
+  "limits": [
+    "Three CUAD categories out of 41; rule-based, not language understanding",
+    "Overlap scoring at sentence level is generous; values checked descriptively only",
+    "CUAD labels are an expert reference, not indisputable ground truth",
+    "Development and test contracts share source and period"
+  ],
+  "revision_before_anchor": "2026-10-29: an independent pre-anchor review found that compound number words (e.g. twenty-four) were mis-normalized; fixed, value checks extended, runner hardened. No test-set data was used."
+}
