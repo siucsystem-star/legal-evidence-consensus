@@ -2,10 +2,26 @@
 
 # Current status
 
-Date: October 29, 2026 (0.3 section added; the 0.2 and v0.1 sections below are
+Date: October 29, 2026 (extraction study and 0.3 sections added; the 0.2 and v0.1 sections below are
 as of October 23). This document separates the original v0.1 workflow, the
 contract demonstration 0.2 and the 0.3 anchored workflow. Historical freezes and
 audits retain their meaning at their own dates; they have not been rewritten.
+
+## Extraction study v1 — real contracts, preregistered (2026-10-29)
+
+- Three deterministic extractors (governing law, renewal term, notice period to
+  stop renewal) developed on 408 CUAD contracts (expert-annotated, CC BY 4.0).
+- Protocol, code and data fingerprints frozen in
+  `extraction-study/PREREGISTRATION.json`; its SHA-256 anchored on Sepolia
+  (tx `0x325df835…a4f0`, block 12022397, 22:06:36 UTC) **before** the test run.
+- Single run on the 102 official CUAD test contracts, one minute later.
+  F1: governing law 0.90 (precision 0.97, recall 0.84), renewal term 0.82
+  (1.00 / 0.69), notice period 0.65 (0.67 / 0.63). Full intervals, errors and
+  predictions: [`extraction-study/RESULTS.md`](extraction-study/RESULTS.md).
+- Not shown: general contract understanding, legal correctness, other clause
+  types or document sources. Two accidental contract-copy deployments and one
+  reverted wallet attempt occurred while anchoring; they are disclosed and did
+  not touch the anchored digest.
 
 ## 0.3 — one CRE workflow, HTTP evidence + Sepolia read-back
 
@@ -75,7 +91,8 @@ governor, scope module, report module, sealed vectors, admission fixture, contra
 tests and licence are unchanged by the 0.2 extension.
 
 The original CRE simulation was rerun: **2/2 oracle agreement**, identical prior
-report hashes and WASM hash. The historical **P8 93/93** result remains a historical
+report hashes and WASM hash. The historical **P8 93/93** parity result (93 of 93 cases agreeing between the
+Python reference and the TypeScript port) remains a historical
 result; that separate suite was not rerun in this review. The unchanged Solidity
 contract passed its 7 Hardhat tests in the preceding October 23 review; no further
 contract change or new deployment was made.

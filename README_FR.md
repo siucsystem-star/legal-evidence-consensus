@@ -16,16 +16,46 @@ clairement ce qu'il n'a **pas** vérifié.
 |---|---|
 | Visite des 12 cas (contrat et avenant fictifs, en anglais) | [page en ligne](https://siucsystem-star.github.io/legal-evidence-consensus/contract-demo.html) ([source](docs/contract-demo.html)) · [vidéo légendée, 69 s](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) (visite du rapport; ne montre pas l'exécution CRE) |
 | Fonctionnement, reproduction, limites | [`CONTRACT_DEMO_V02.md`](CONTRACT_DEMO_V02.md) |
+| **Mesuré sur 102 vrais contrats** (préenregistré, ancré avant la mesure) | [plus bas](#mesuré-sur-de-vrais-contrats-étude-préenregistrée) · [`extraction-study/RESULTS.md`](extraction-study/RESULTS.md) |
 | Un workflow CRE : preuve HTTP + relecture Sepolia | [plus bas](#un-workflow-cre--preuve-http--relecture-sepolia-03) |
 | Ce qui est démontré, et ce qui ne l'est pas | [`CURRENT_STATUS_FR.md`](CURRENT_STATUS_FR.md) |
 | Vidéo v0.1 (simulation CRE, Etherscan) | [Google Drive](https://drive.google.com/file/d/1ekUsWUq6MSm7QSFwHmPCXrOdXgb_QH8F/view?usp=sharing) |
 
-**Les deux horloges.** Les cas 09 et 10 portent sur le *même jour* (2 avril 2026)
-et concordent tous deux — avec des tarifs différents. L'avenant prend effet le
+**Les deux horloges (une vérification bitemporelle).** Chaque fait porte deux
+dates : sa prise d'effet et le moment où il est connu. Les cas 09 et 10 portent
+sur le *même jour* (2 avril 2026) et concordent tous deux — avec des tarifs
+différents. L'avenant prend effet le
 1er avril mais n'est connu que le 5 avril. Avec ce qu'on savait le 2 avril, le
 tarif appuyé est de 8 400 $ CA; avec ce qu'on savait au 1er mai, il est de
 9 100 $ CA. Les deux réponses sont justes pour leur horizon de connaissance, et
 le contrôleur ne les confond jamais.
+
+## Mesuré sur de vrais contrats (étude préenregistrée)
+
+La démonstration ci-dessus utilise un contrat fictif et des affirmations
+structurées à la main. Pour mesurer l'approche sur de vrais documents, trois
+extracteurs déterministes (des règles, sans modèle d'IA) ont été testés sur
+**CUAD**, un ensemble public de 510 contrats commerciaux annotés clause par clause
+par des juristes (The Atticus Project, CC BY 4.0).
+
+Les règles ont été mises au point sur 408 contrats seulement. Le protocole, le
+code et les empreintes des données ont ensuite été gelés, publiés, et leur SHA-256
+**ancré sur Ethereum Sepolia** ([transaction](https://sepolia.etherscan.io/tx/0x325df835678f8c8dab42488b32269a9ea3765ee9407e6979d27f1a846b90a4f0),
+29 octobre 2026, 22 h 06 min 36 s UTC). Une minute plus tard, une seule exécution
+sur les 102 contrats de test jamais consultés a donné :
+
+| Type de clause | Précision | Rappel | F1 |
+|---|---|---|---|
+| Loi applicable | 0,97 (70/72) | 0,84 (70/83) | 0,90 |
+| Durée de renouvellement | 1,00 (18/18) | 0,69 (18/26) | 0,82 |
+| Préavis de non-renouvellement | 0,67 (10/15) | 0,63 (10/16) | 0,65 |
+
+*Précision :* à quelle fréquence la clause trouvée est celle marquée par les
+juristes. *Rappel :* quelle part des clauses marquées a été trouvée. Intervalles,
+erreurs et prédictions sont publiés dans [`extraction-study/`](extraction-study/RESULTS.md).
+C'est la thèse du projet appliquée à lui-même : le critère est figé et horodaté
+avant de voir le résultat. Trois types de clauses seulement; des règles, pas une
+compréhension du langage.
 
 ## Un workflow CRE : preuve HTTP + relecture Sepolia (0.3)
 
@@ -53,6 +83,20 @@ Lecture seule : aucune transaction, aucun portefeuille, aucun secret. L'ancrage
 Sepolia porte **l'empreinte de l'instantané v0.1**; l'empreinte du rapport 0.2
 n'est pas ancrée. Simulation mononœud; aucun consensus DON revendiqué. Résultat de la simulation
 en ligne de commande : [`VERIFICATION_ANCHOR_V03.json`](VERIFICATION_ANCHOR_V03.json).
+
+## Glossaire
+
+| Terme | Sens ici |
+|---|---|
+| Chainlink CRE | Chainlink Runtime Environment : exécute un workflow qui peut appeler des API web et des blockchains |
+| Simulation mononœud | le workflow a tourné une fois, sur une machine, par la ligne de commande CRE; aucun réseau de nœuds |
+| DON / consensus BFT | un réseau décentralisé de nœuds qui s'accordent sur un résultat; **non** utilisé ici |
+| Sepolia | réseau de test public d'Ethereum : vrais blocs et horodatages, aucune valeur monétaire |
+| Ancrage | inscrire une empreinte SHA-256 sur la chaîne, ce qui prouve que les données existaient au plus tard à ce bloc |
+| Instantané | un ensemble de faits signé et figé, contre lequel on vérifie les affirmations |
+| Bitemporel | suivre à la fois la prise d'effet d'un fait et le moment où il est connu |
+| Reality Floor / gouverneur | le moteur de règles v0.1 du projet |
+| CUAD | Contract Understanding Atticus Dataset : vrais contrats annotés par des juristes |
 
 ---
 

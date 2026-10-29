@@ -1,0 +1,54 @@
+{
+  "document": "ANCHOR_RECEIPT_PREREGISTRATION_V1",
+  "date": "2026-10-29",
+  "network": {
+    "name": "Ethereum Sepolia",
+    "chainId": 11155111
+  },
+  "contract": "0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3",
+  "transaction": {
+    "hash": "0x325df835678f8c8dab42488b32269a9ea3765ee9407e6979d27f1a846b90a4f0",
+    "status": "success",
+    "function": "anchor(bytes32)",
+    "submitter": "0xbf6013d4CeD10ecf794527a60AF7cd57A73ab18f",
+    "blockNumber": 12022397,
+    "blockTimestamp": 1793311596,
+    "blockTimestampUTC": "2026-10-29T22:06:36Z",
+    "explorerUrl": "https://sepolia.etherscan.io/tx/0x325df835678f8c8dab42488b32269a9ea3765ee9407e6979d27f1a846b90a4f0"
+  },
+  "digest": {
+    "hex": "e8de656a26eb2f07304712f84cb6a53eb92cde9cd474bc9c436e1ca26106d96c",
+    "preimage": "extraction-study/PREREGISTRATION.json at commit ea1b82d (exact bytes)"
+  },
+  "read_back": {
+    "method": "getAnchor(submitter, digest) via public RPC",
+    "result": "anchoredBy and digest match; block 12022397; timestamp 1793311596"
+  },
+  "test_run_after_anchor": {
+    "utc": "2026-10-29T22:07:36Z",
+    "results_file": "extraction-study/RESULTS_TEST_V1.json",
+    "results_sha256": "71203bd1ccbb0bd3ae9fbb1b6b1775db1a8f2e2ed5c3db792fc1d257bdf3eb9d"
+  },
+  "unrelated_transactions_same_session": [
+    {
+      "hash": "0xa71ca78988addc68c3bcb5be17c8162f8b2542db8a28b780fbf26035427c0c87",
+      "what": "accidental deployment of a contract copy at 0x173b3543c523f0083ed4f0fd5e54c12cba935b5f"
+    },
+    {
+      "hash": "0xd844917248751d9a608e9f9d4f51f7002085c90d671c607f653f7ed67dd69022",
+      "what": "accidental deployment of a contract copy at 0x64a720f3ba1b1b6b9786da62c5d9c3824c73a616"
+    },
+    {
+      "hash": "0x8cde2a501780b4a1d1aec2892179268c2c8d26584d4543bdb18177adc8c8c13d",
+      "what": "anchor attempt routed by the wallet through an EIP-7702 delegation path; reverted; nothing anchored"
+    }
+  ],
+  "establishes": [
+    "This address submitted this digest to this contract at this block: the preregistration existed no later than 2026-10-29T22:06:36Z, one minute before the test run."
+  ],
+  "doesNotEstablish": [
+    "that the preregistration existed earlier than that block",
+    "the correctness of the extractors or of CUAD labels",
+    "any legal validity"
+  ]
+}

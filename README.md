@@ -15,15 +15,43 @@ not match, and says just as plainly what it did **not** check.
 |---|---|
 | 12-case contract walkthrough (fictional agreement + amendment) | [live page](https://siucsystem-star.github.io/legal-evidence-consensus/contract-demo.html) ([source](docs/contract-demo.html)) · [captioned video, 69 s](docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4) (report walkthrough; it does not show the CRE run) |
 | How the checks work, reproduction, limits | [`CONTRACT_DEMO_V02.md`](CONTRACT_DEMO_V02.md) |
+| **Measured on 102 real contracts** (preregistered, anchored before the run) | [below](#measured-on-real-contracts-preregistered-study) · [`extraction-study/RESULTS.md`](extraction-study/RESULTS.md) |
 | One CRE workflow: HTTP evidence + Sepolia read-back | [below](#one-cre-workflow-http-evidence--sepolia-read-back-03) |
 | What is demonstrated and what is not | [`CURRENT_STATUS.md`](CURRENT_STATUS.md) |
 | Earlier v0.1 video (CRE simulation, Etherscan) | [Google Drive](https://drive.google.com/file/d/1ekUsWUq6MSm7QSFwHmPCXrOdXgb_QH8F/view?usp=sharing) |
 
-**The two clocks.** Cases 09 and 10 ask about the *same day* (2 April 2026) and
-both match — with different fees. The amendment took effect on 1 April but was
+**The two clocks (a bitemporal check).** Every fact carries two dates: when it
+takes effect, and when it became known. Cases 09 and 10 ask about the *same day*
+(2 April 2026) and both match — with different fees. The amendment took effect on 1 April but was
 only known on 5 April. Asked with what was known on 2 April, the supported fee
 is CAD 8,400; asked with what was known by 1 May, it is CAD 9,100. Both answers
 are correct for their knowledge horizon, and the checker never mixes them.
+
+## Measured on real contracts (preregistered study)
+
+The demonstration above uses a fictional contract with hand-structured claims.
+To measure the approach on real documents, three deterministic extractors (rules,
+no AI model) were tested on **CUAD**, a public set of 510 commercial contracts
+annotated clause by clause by legal experts (The Atticus Project, CC BY 4.0).
+
+The rules were developed on 408 contracts only. The protocol, code and data
+fingerprints were then frozen, committed, and their SHA-256 **anchored on
+Ethereum Sepolia** ([tx](https://sepolia.etherscan.io/tx/0x325df835678f8c8dab42488b32269a9ea3765ee9407e6979d27f1a846b90a4f0),
+2026-10-29 22:06:36 UTC). One minute later, a single run on the 102 untouched
+test contracts produced:
+
+| Clause type | Precision | Recall | F1 |
+|---|---|---|---|
+| Governing law | 0.97 (70/72) | 0.84 (70/83) | 0.90 |
+| Renewal term | 1.00 (18/18) | 0.69 (18/26) | 0.82 |
+| Notice period to stop renewal | 0.67 (10/15) | 0.63 (10/16) | 0.65 |
+
+*Precision:* how often a found clause is the one experts marked. *Recall:* how
+many marked clauses were found. Intervals, every error and every prediction are
+published in [`extraction-study/`](extraction-study/RESULTS.md). This is the
+project's own thesis applied to itself: the criterion was fixed and timestamped
+before the result was seen. Three clause types only; rules, not language
+understanding.
 
 ## One CRE workflow: HTTP evidence + Sepolia read-back (0.3)
 
@@ -51,6 +79,20 @@ Read-only: no transaction, no wallet, no secret. The Sepolia record concerns the
 simulation; no DON consensus is claimed. CLI simulation result for this target:
 [`VERIFICATION_ANCHOR_V03.json`](VERIFICATION_ANCHOR_V03.json).
 
+## Glossary
+
+| Term | Meaning here |
+|---|---|
+| Chainlink CRE | Chainlink Runtime Environment: runs a workflow that can call web APIs and blockchains |
+| Single-node simulation | the workflow ran once, on one machine, via the CRE command line; no network of nodes |
+| DON / BFT consensus | a decentralized network of nodes agreeing on a result; **not** used here |
+| Sepolia | Ethereum's public test network: real blocks and timestamps, no monetary value |
+| Anchor | writing a SHA-256 fingerprint on-chain, which proves the data existed no later than that block |
+| Snapshot | a signed, fixed set of facts that claims are checked against |
+| Bitemporal | tracking both when a fact takes effect and when it became known |
+| Reality Floor / governor | the project's earlier v0.1 rule engine (identifiers in French, translated below) |
+| CUAD | Contract Understanding Atticus Dataset: real contracts annotated by legal experts |
+
 ---
 
 *The original v0.1 project description follows.*
@@ -73,18 +115,20 @@ is about to decide.
 
 ## The proposal
 
-Reality Floor governs a claim against a **sealed evidence snapshot**, admitted by its preregistered
-byte hash, event-hash chain and Ed25519-signed canonical root attestation. The governor returns a verdict — `AUTORISE`, `REFORMULER` or
-`BLOQUE` — together with named defect codes drawn from fifteen:
-`VALEUR_PERIMEE`, `SOURCE_INCONNUE`, `PREUVE_NON_CONCORDANTE`,
-`SECTION_NON_CONCORDANTE`, and others.
+Reality Floor checks a claim against a **sealed evidence snapshot**. Before
+reading anything, it verifies the snapshot's exact bytes, its chain of 44 event
+fingerprints and an Ed25519 signature. Its rule engine (the *governor*) returns a
+verdict — `AUTORISE` (authorised), `REFORMULER` (rephrase) or `BLOQUE` (blocked) —
+with named defect codes drawn from fifteen, such as `VALEUR_PERIMEE` (stale value),
+`SOURCE_INCONNUE` (unknown source), `PREUVE_NON_CONCORDANTE` (evidence does not
+match) and `SECTION_NON_CONCORDANTE` (wrong section).
 
 The resulting report is canonically serialised, so its SHA-256 is reproducible
 byte for byte. In the existing Sepolia demonstration, the **snapshot digest**
 was anchored manually; the report digests are generated locally and are not
 claimed to have been anchored by the workflow.
 
-*(Identifiers are kept in French: they are the actual constants in the code.)*
+*(Identifiers stay in French because they are the constants in the frozen code; English glosses are given in parentheses.)*
 
 ## The path actually demonstrated
 
@@ -103,13 +147,13 @@ separately from the CRE workflow.
 
 ## The two demonstration cases
 
-Both concern the same key, `tarif_service_principal`, against the same sealed
-snapshot. Only the claim changes.
+Both concern the same key, `tarif_service_principal` (main service fee), against
+the same sealed snapshot. Only the claim changes.
 
 | case | verdict | defect codes | displayed |
 |---|---|---|---|
-| `vivant` | `AUTORISE` | none | "Affirmation conforme au plancher." |
-| `perime` | `BLOQUE` | `VALEUR_PERIMEE` | "Affirmation retenue (hallucination temporelle (valeur remplacée))." |
+| `vivant` (current) | `AUTORISE` (authorised) | none | "Affirmation conforme au plancher." — *claim consistent with the evidence* |
+| `perime` (stale) | `BLOQUE` (blocked) | `VALEUR_PERIMEE` (stale value) | "Affirmation retenue (hallucination temporelle (valeur remplacée))." — *claim withheld: temporal error, value superseded* |
 
 The second case is the heart of the demonstration: the quoted value did exist,
 then was superseded. It is not false — it is **stale**. A system that does not

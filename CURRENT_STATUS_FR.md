@@ -2,9 +2,25 @@
 
 # État courant
 
-Date : 29 octobre 2026 (section 0.3 ajoutée; les sections 0.2 et v0.1 datent du
+Date : 29 octobre 2026 (sections étude d'extraction et 0.3 ajoutées; les sections 0.2 et v0.1 datent du
 23 octobre). Le parcours historique v0.1, la démonstration contractuelle 0.2 et
 le workflow ancré 0.3 restent séparés. Les audits et gels historiques restent datés.
+
+## Étude d'extraction v1 — vrais contrats, préenregistrée (29 octobre 2026)
+
+Trois extracteurs déterministes (loi applicable, durée de renouvellement,
+préavis de non-renouvellement) mis au point sur 408 contrats CUAD annotés par des
+juristes (CC BY 4.0). Protocole, code et empreintes des données gelés dans
+`extraction-study/PREREGISTRATION.json`; son SHA-256 a été ancré sur Sepolia
+(transaction `0x325df835…a4f0`, bloc 12022397, 22 h 06 min 36 s UTC) **avant**
+l'exécution sur le lot de test. Une seule exécution sur les 102 contrats de test
+officiels, une minute plus tard. F1 : loi applicable 0,90 (précision 0,97, rappel
+0,84), durée de renouvellement 0,82 (1,00 / 0,69), préavis 0,65 (0,67 / 0,63).
+Intervalles, erreurs et prédictions : [`extraction-study/RESULTS.md`](extraction-study/RESULTS.md).
+Non démontré : compréhension générale des contrats, exactitude juridique, autres
+clauses ou sources. Deux déploiements accidentels de copies du contrat et une
+tentative annulée par le portefeuille ont eu lieu pendant l'ancrage; ils sont
+déclarés et n'ont pas touché l'empreinte ancrée.
 
 ## 0.3 — un workflow CRE, preuve HTTP + relecture Sepolia
 
@@ -75,7 +91,8 @@ l'attestation de racine Ed25519 et les 44 événements avant gouvernance.
 L'extension ne modifie ni le gouverneur gelé, ni ses vecteurs, ni l'admission,
 ni les modules portée/rapport, le contrat Solidity, ses tests ou la licence.
 La simulation historique a été rejouée : 2/2, mêmes empreintes de rapports et
-même WASM. Le résultat P8 93/93 reste historique, non rejoué ici. Les 7 tests
+même WASM. Le résultat de parité P8 93/93 (93 cas sur 93 concordants entre la
+référence Python et le portage TypeScript) reste historique, non rejoué ici. Les 7 tests
 Hardhat du contrat inchangé avaient passé dans la revue précédente du 23 octobre.
 
 L'ancrage Sepolia historique porte l'instantané v0.1, pas le nouveau rapport.
