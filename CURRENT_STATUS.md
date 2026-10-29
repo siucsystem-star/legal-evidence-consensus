@@ -2,9 +2,37 @@
 
 # Current status
 
-Date: October 23, 2026. This document separates the original v0.1 workflow from
-the new contract demonstration 0.2. Historical freezes and audits retain their
-meaning at their own dates; they have not been rewritten.
+Date: October 29, 2026 (0.3 section added; the 0.2 and v0.1 sections below are
+as of October 23). This document separates the original v0.1 workflow, the
+contract demonstration 0.2 and the 0.3 anchored workflow. Historical freezes and
+audits retain their meaning at their own dates; they have not been rewritten.
+
+## 0.3 — one CRE workflow, HTTP evidence + Sepolia read-back
+
+- New entry point `anchor-main.ts`, target `anchor-check-settings`. It fetches
+  the signed 0.2 package over HTTPS from an immutable commit and reviews the 12
+  claims (unchanged 0.2 logic), then admits the sealed v0.1 snapshot and reads
+  its existing Sepolia anchor with a `getAnchor` **view call** at the last
+  finalized block. Submitter, digest, block and timestamp must all match.
+- **Read-only.** No transaction, no wallet, no secret, no new deployment. The
+  anchor concerns the v0.1 snapshot digest; the 0.2 report digest is not anchored.
+- **21 new tests pass**, including the real handler under the CRE SDK test
+  runtime with HTTP and EVM capability mocks, mismatch and revert propagation,
+  and "altered package fails before the chain is read". The 13 admission and 37
+  contract tests still pass (71 total, 0 failures). Typecheck passes.
+- The workflow compiles to WASM with the SDK's `cre-compile` (Javy), including
+  its runtime-compatibility validation.
+- The encoded call was executed against Ethereum Sepolia through a public RPC
+  (`eth_call` at `finalized`, 2026-10-29); the reply matches the July 26 receipt
+  and is recorded as the test fixture.
+- **`cre workflow simulate` with this target passed** on October 29 (CRE CLI
+  1.26.0, Bun 1.4.4, Windows): `ANCHOR_MATCHES_SNAPSHOT` at block 11357728,
+  44 event hashes verified, 12/12 outcomes equal to the developer expectations,
+  and the contract report SHA-256 identical to the October 23 record
+  (`d3d6c1d2…`). Record: [VERIFICATION_ANCHOR_V03.json](VERIFICATION_ANCHOR_V03.json);
+  log: [`review-evidence/`](review-evidence/CRE_SIMULATION_ANCHOR_CHECK_2026-10-29.txt).
+- No frozen file is modified: governor, scope, report, sealed vectors, admission,
+  contract, contract tests, 0.2 review logic, `bun.lock` and licence are unchanged.
 
 ## Contract demonstration 0.2 — executed
 
@@ -25,9 +53,13 @@ meaning at their own dates; they have not been rewritten.
   desktop and mobile, with no page errors or horizontal overflow. It displays
   stored results; it does not make a live model or legal assessment.
 - A shuffled answer-free packet and two blank reader sheets are prepared.
-  **External readings completed: 0.** Expectations are developer-authored.
+  **External readings completed: 0** (as of October 29). Expectations are developer-authored.
 - A silent 58-second walkthrough is generated from the report viewer's actual
-  screenshots. It is a report walkthrough, not a live terminal recording.
+  screenshots. It is a report walkthrough, not a live terminal recording. On
+  October 29 a captioned 71-second version (title card, one caption per case,
+  closing card; original frames unmasked) was added as
+  `docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4`. It does not show the
+  0.3 CRE run.
 
 Reproduction and scope: [CONTRACT_DEMO_V02.md](CONTRACT_DEMO_V02.md).
 Machine-readable evidence: [VERIFICATION_CONTRACT_V02.json](VERIFICATION_CONTRACT_V02.json).
@@ -54,12 +86,16 @@ transaction, DON deployment or multi-node BFT consensus is claimed.
 
 The [historical v0.1 video](https://drive.google.com/file/d/1ekUsWUq6MSm7QSFwHmPCXrOdXgb_QH8F/view?usp=sharing) is now identified on Drive; filename and
 27,203,766-byte size match the reviewed local file, and its viewer was reached
-without signing in. It does not show the 0.2 extension. The new walkthrough is
-provided separately with the research preview assets.
+without signing in. It does not show the 0.2 extension. The captioned walkthrough
+is in `docs/`.
 
-The DoraHacks submission is **not yet made**. The organizer announces October 31;
-the exact platform deadline and event-specific CRE bounty eligibility remain to
-be confirmed.
+The DoraHacks submission deadline is **2026-10-31 21:01 (UTC−4)**, i.e.
+2026-11-01 01:01 UTC, as shown on the event page on October 29. The event lists
+a Chainlink bounty, "Best workflow with CRE", which asks for a CRE workflow that
+integrates at least one blockchain with an external API or data source and a
+successful CLI simulation; the 0.3 target was built for that requirement and
+its CLI simulation passed.
+Eligibility is decided by the sponsor, not claimed here.
 
 ## Explicit limits
 

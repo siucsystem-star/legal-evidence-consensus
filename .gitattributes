@@ -25,6 +25,7 @@
 *.jpeg binary
 *.gif binary
 *.bin binary
+*.mp4 binary
 
 # Exact signed-byte artifacts require a separate admission gate.
 sealed-evidence/** -text

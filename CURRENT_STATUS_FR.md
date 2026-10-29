@@ -2,8 +2,40 @@
 
 # État courant
 
-Date : 23 octobre 2026. Le parcours historique v0.1 et la nouvelle démonstration
-contractuelle 0.2 restent séparés. Les audits et gels historiques restent datés.
+Date : 29 octobre 2026 (section 0.3 ajoutée; les sections 0.2 et v0.1 datent du
+23 octobre). Le parcours historique v0.1, la démonstration contractuelle 0.2 et
+le workflow ancré 0.3 restent séparés. Les audits et gels historiques restent datés.
+
+## 0.3 — un workflow CRE, preuve HTTP + relecture Sepolia
+
+Nouveau point d'entrée `anchor-main.ts`, cible `anchor-check-settings`. Il
+récupère le paquet 0.2 signé par HTTPS depuis un commit immuable et examine les
+12 affirmations (logique 0.2 inchangée), puis admet l'instantané scellé v0.1 et
+relit son ancrage Sepolia existant par un **appel en lecture seule** `getAnchor`
+au dernier bloc finalisé. Émetteur, empreinte, bloc et horodatage doivent tous
+concorder.
+
+**Lecture seule** : aucune transaction, aucun portefeuille, aucun secret, aucun
+nouveau déploiement. L'ancrage porte l'empreinte de l'instantané v0.1; celle du
+rapport 0.2 n'est pas ancrée.
+
+**21 nouveaux tests passent**, dont le gestionnaire réel sous l'environnement de
+test du SDK CRE (capacités HTTP et EVM simulées), la propagation d'un écart ou
+d'un revert, et « un paquet altéré échoue avant toute lecture de chaîne ». Les
+13 tests d'admission et les 37 tests contractuels passent toujours (71 au total,
+zéro échec). La vérification TypeScript passe. Le workflow se compile en WASM
+avec `cre-compile` (Javy), validation de compatibilité comprise. L'appel encodé
+a été exécuté contre Sepolia par un RPC public (`eth_call` au bloc `finalized`,
+29 octobre 2026); la réponse concorde avec le reçu du 26 juillet et sert de
+fixture aux tests. **La simulation `cre workflow simulate` de cette cible a réussi** le 29 octobre
+(CRE CLI 1.26.0, Bun 1.4.4, Windows) : `ANCHOR_MATCHES_SNAPSHOT` au bloc
+11357728, 44 événements vérifiés, 12/12 résultats conformes aux attentes du
+développeur, empreinte du rapport contractuel identique à celle du 23 octobre
+(`d3d6c1d2…`). Fiche : [VERIFICATION_ANCHOR_V03.json](VERIFICATION_ANCHOR_V03.json);
+journal : [`review-evidence/`](review-evidence/CRE_SIMULATION_ANCHOR_CHECK_2026-10-29.txt).
+
+Aucun fichier gelé n'est modifié : gouverneur, portée, rapport, vecteurs
+scellés, admission, contrat, tests du contrat, logique 0.2, `bun.lock` et licence.
 
 ## Extension contractuelle 0.2 — exécutée
 
@@ -23,7 +55,11 @@ L'interface anglaise du rapport a été vérifiée sur ordinateur et mobile pour
 12 cas, sans erreur de page ni débordement horizontal. Elle affiche un résultat
 enregistré, sans nouvelle analyse à chaque clic. Deux fiches de lecture externes
 vierges sont préparées; **aucune lecture externe n'est achevée**. Une visite
-vidéo silencieuse de 58 secondes présente les captures du rapport calculé.
+vidéo silencieuse de 58 secondes présente les captures du rapport calculé. Le
+29 octobre, une version légendée de 71 secondes (écran titre, une légende par
+cas, écran final; images d'origine non masquées) a été ajoutée dans
+`docs/Legal_Evidence_Consensus_v0.3_Walkthrough.mp4`. Elle ne montre pas
+l'exécution CRE 0.3.
 
 Voir [le guide de reproduction](CONTRACT_DEMO_V02.md) et
 [les preuves techniques](VERIFICATION_CONTRACT_V02.json).
@@ -45,10 +81,15 @@ Aucune transaction nouvelle, aucun déploiement DON et aucun consensus BFT.
 
 La [vidéo v0.1 historique](https://drive.google.com/file/d/1ekUsWUq6MSm7QSFwHmPCXrOdXgb_QH8F/view?usp=sharing) est identifiée : même nom et même taille
 de 27 203 766 octets que le fichier local examiné; sa page Drive s'ouvre sans
-connexion. Elle ne présente pas les ajouts 0.2. La nouvelle vidéo est distincte.
+connexion. Elle ne présente pas les ajouts 0.2. La vidéo légendée est dans `docs/`.
 
-Le dépôt DoraHacks reste à effectuer; conditions particulières de la prime et
-heure limite de la plateforme restent à confirmer.
+Échéance DoraHacks : **31 octobre 2026 à 21 h 01 (UTC−4)**, soit le 1er novembre
+à 01 h 01 UTC, selon la page de l'événement consultée le 29 octobre. L'événement
+affiche une prime Chainlink « Best workflow with CRE », qui demande un workflow
+CRE reliant au moins une blockchain à une API ou source externe, avec une
+simulation réussie en ligne de commande; la cible 0.3 a été
+conçue pour cette exigence et sa simulation a réussi.
+L'admissibilité relève du commanditaire et n'est pas revendiquée ici.
 
 Ce contrôleur limité n'est pas une validation officielle Reality Floor. Il ne
 comprend pas des contrats arbitraires et n'extrait pas automatiquement leurs

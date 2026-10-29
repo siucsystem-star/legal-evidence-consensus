@@ -7,6 +7,7 @@
     "typecheck": "tsc --noEmit",
     "test:admission": "bun test ../review-tests/admission.test.ts",
     "test:contract": "bun test ../review-tests/contract.test.ts",
+    "test:anchor": "bun test ../review-tests/anchor.test.ts",
     "demo:contract": "bun run ../scripts/build-contract-demo.ts"
   },
   "license": "UNLICENSED",
