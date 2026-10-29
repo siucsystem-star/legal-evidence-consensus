@@ -1,0 +1,32 @@
+! Using default private key for chain write simulation. To use your own key, set CRE_ETH_PRIVATE_KEY in your .env file or system environment.
+✓ Workflow compiled
+✓ Simulation limits enabled
+  HTTP: req=120kb resp=250kb timeout=10s | ConfHTTP: req=125kb resp=500kb timeout=1m30s | Consensus obs=25kb | ChainWrite evm_report=50kb evm_gas=10000000 solana_report=265b solana_cu=300000 | WASM binary=100mb compressed=20mb
+  Binary hash: 16128b1d2de52ec7c234194d939b5b82f1e55f87f7a24571f92b8e8e29a591ae
+  Config hash: 509d9672aca2538c5f73158345e956a3424222cb3563de539cd5f5e9a59dd6d0
+2026-10-29T14:50:09Z [SIMULATION] Simulator Initialized
+
+2026-10-29T14:50:09Z [SIMULATION] Running trigger trigger=cron-trigger@1.0.0
+2026-10-29T14:50:10Z [USER LOG] LEGAL EVIDENCE CONSENSUS 0.3 — HTTP evidence review + Sepolia anchor read-back
+2026-10-29T14:50:10Z [USER LOG] [HTTP] package hash: bd7c9d86655131ff27019fb216be299623bdf61e6aa4bff4b3a67b950ad5b9a5
+2026-10-29T14:50:10Z [USER LOG] [HTTP] current-fee | MATCHES_REGISTER | MATCH
+2026-10-29T14:50:10Z [USER LOG] [HTTP] superseded-fee | DOES_NOT_MATCH_REGISTER | SOURCE_SUPERSEDED
+2026-10-29T14:50:10Z [USER LOG] [HTTP] unknown-source | INSUFFICIENT_EVIDENCE | SOURCE_UNKNOWN
+2026-10-29T14:50:10Z [USER LOG] [HTTP] missing-citation | INSUFFICIENT_EVIDENCE | CITATION_MISSING
+
+✓ Workflow Simulation Result:
+"{\"schema\":\"LEC-ANCHORED-RUN-0.3\",\"contractReview\":{\"packageSha256\":\"bd7c9d86655131ff27019fb216be299623bdf61e6aa4bff4b3a67b950ad5b9a5\",\"reportSha256\":\"d3d6c1d22b6c9993dcf8be96b9d2cc3a97a28072cc77e86da03aa9654b8f2524\",\"outcomes\":{\"current-fee\":\"MATCHES_REGISTER\",\"superseded-fee\":\"DOES_NOT_MATCH_REGISTER\",\"unknown-source\":\"INSUFFICIENT_EVIDENCE\",\"missing-citation\":\"INSUFFICIENT_EVIDENCE\",\"qualified-delay\":\"MATCHES_REGISTER\",\"omitted-condition\":\"DOES_NOT_MATCH_REGISTER\",\"changed-condition\":\"DOES_NOT_MATCH_REGISTER\",\"wrong-unit\":\"DOES_NOT_MATCH_REGISTER\",\"before-amendment-known\":\"MATCHES_REGISTER\",\"retrospective-view\":\"MATCHES_REGISTER\",\"wrong-value\":\"DOES_NOT_MATCH_REGISTER\",\"free-form-wording\":\"OUTSIDE_SUPPORTED_SCOPE\"}},\"snapshot\":{\"sha256\":\"9f694a38f1870501557f23c2f29e8d5033e46635376a426662407d5348a8ddcf\",\"eventHashesVerified\":44,\"rootAttestation\":\"VERIFIED\"},\"anchor\":{\"status\":\"ANCHOR_MATCHES_SNAPSHOT\",\"network\":\"ethereum-testnet-sepolia\",\"contract\":\"0xEbdc99d629De5d19fBB18dD8A18Ab78091ddAba3\",\"submitter\":\"0xbf6013d4CeD10ecf794527a60AF7cd57A73ab18f\",\"digest\":\"9f694a38f1870501557f23c2f29e8d5033e46635376a426662407d5348a8ddcf\",\"blockNumber\":\"11357728\",\"blockTimestamp\":\"1785107232\",\"transaction\":\"0x2a7636259f1e766ddf37fefc922159e544b44f918d05a145a2884a991574c34d\",\"establishes\":\"This address submitted this digest to this contract at this block (an upper time bound).\",\"doesNotEstablish\":\"Truth, legal validity, real provenance, the identity behind the address, or that the snapshot existed earlier.\"},\"scope\":\"SINGLE-NODE SIMULATION: no DON consensus. Read-only: no blockchain write, no transaction. The Sepolia record concerns the v0.1 snapshot digest; the 0.2 report digest is not anchored.\"}"
+
+2026-10-29T14:50:10Z [SIMULATION] Execution finished signal received
+2026-10-29T14:50:10Z [USER LOG] [HTTP] qualified-delay | MATCHES_REGISTER | MATCH
+2026-10-29T14:50:10Z [USER LOG] [HTTP] omitted-condition | DOES_NOT_MATCH_REGISTER | CONDITION_OMITTED
+2026-10-29T14:50:10Z [SIMULATION] Skipping WorkflowEngineV2
+
+╭──────────────────────────────────────────────────────╮
+│ Simulation complete! Ready to deploy your workflow?  │
+│                                                      │
+│ Run cre account access to request deployment access. │
+╰──────────────────────────────────────────────────────╯
+
+⚠️  Update available! You’re running 1.26.0, but 1.39.0 is the latest.
+Run `cre update` or visit https://github.com/smartcontractkit/cre-cli/releases to upgrade.

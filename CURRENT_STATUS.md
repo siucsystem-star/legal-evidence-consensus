@@ -25,8 +25,12 @@ audits retain their meaning at their own dates; they have not been rewritten.
 - The encoded call was executed against Ethereum Sepolia through a public RPC
   (`eth_call` at `finalized`, 2026-10-29); the reply matches the July 26 receipt
   and is recorded as the test fixture.
-- **`cre workflow simulate` with this target: see
-  [VERIFICATION_ANCHOR_V03.json](VERIFICATION_ANCHOR_V03.json).**
+- **`cre workflow simulate` with this target passed** on October 29 (CRE CLI
+  1.26.0, Bun 1.4.4, Windows): `ANCHOR_MATCHES_SNAPSHOT` at block 11357728,
+  44 event hashes verified, 12/12 outcomes equal to the developer expectations,
+  and the contract report SHA-256 identical to the October 23 record
+  (`d3d6c1d2…`). Record: [VERIFICATION_ANCHOR_V03.json](VERIFICATION_ANCHOR_V03.json);
+  log: [`review-evidence/`](review-evidence/CRE_SIMULATION_ANCHOR_CHECK_2026-10-29.txt).
 - No frozen file is modified: governor, scope, report, sealed vectors, admission,
   contract, contract tests, 0.2 review logic, `bun.lock` and licence are unchanged.
 
@@ -89,7 +93,8 @@ The DoraHacks submission deadline is **2026-10-31 21:01 (UTC−4)**, i.e.
 2026-11-01 01:01 UTC, as shown on the event page on October 29. The event lists
 a Chainlink bounty, "Best workflow with CRE", which asks for a CRE workflow that
 integrates at least one blockchain with an external API or data source and a
-successful CLI simulation; the 0.3 target is built to that requirement.
+successful CLI simulation; the 0.3 target was built for that requirement and
+its CLI simulation passed.
 Eligibility is decided by the sponsor, not claimed here.
 
 ## Explicit limits

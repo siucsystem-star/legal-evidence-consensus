@@ -27,8 +27,12 @@ zéro échec). La vérification TypeScript passe. Le workflow se compile en WASM
 avec `cre-compile` (Javy), validation de compatibilité comprise. L'appel encodé
 a été exécuté contre Sepolia par un RPC public (`eth_call` au bloc `finalized`,
 29 octobre 2026); la réponse concorde avec le reçu du 26 juillet et sert de
-fixture aux tests. Simulation `cre workflow simulate` de cette cible : voir
-[VERIFICATION_ANCHOR_V03.json](VERIFICATION_ANCHOR_V03.json).
+fixture aux tests. **La simulation `cre workflow simulate` de cette cible a réussi** le 29 octobre
+(CRE CLI 1.26.0, Bun 1.4.4, Windows) : `ANCHOR_MATCHES_SNAPSHOT` au bloc
+11357728, 44 événements vérifiés, 12/12 résultats conformes aux attentes du
+développeur, empreinte du rapport contractuel identique à celle du 23 octobre
+(`d3d6c1d2…`). Fiche : [VERIFICATION_ANCHOR_V03.json](VERIFICATION_ANCHOR_V03.json);
+journal : [`review-evidence/`](review-evidence/CRE_SIMULATION_ANCHOR_CHECK_2026-10-29.txt).
 
 Aucun fichier gelé n'est modifié : gouverneur, portée, rapport, vecteurs
 scellés, admission, contrat, tests du contrat, logique 0.2, `bun.lock` et licence.
@@ -83,8 +87,8 @@ connexion. Elle ne présente pas les ajouts 0.2. La vidéo légendée est dans `
 à 01 h 01 UTC, selon la page de l'événement consultée le 29 octobre. L'événement
 affiche une prime Chainlink « Best workflow with CRE », qui demande un workflow
 CRE reliant au moins une blockchain à une API ou source externe, avec une
-simulation réussie en ligne de commande; la cible 0.3 est conçue
-pour cette exigence.
+simulation réussie en ligne de commande; la cible 0.3 a été
+conçue pour cette exigence et sa simulation a réussi.
 L'admissibilité relève du commanditaire et n'est pas revendiquée ici.
 
 Ce contrôleur limité n'est pas une validation officielle Reality Floor. Il ne
